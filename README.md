@@ -75,8 +75,6 @@ git clone https://github.com/LukeSONG2000/more-than-design-skill.git \
   ~/.claude/commands/more-than-design-skill
 ```
 
-新命令使用 `/more-than-design`；已有 `/apple-design` 可继续作为兼容入口。
-
 ## 字体资源
 
 仓库保留 [refinec/PingFangSC](https://github.com/refinec/PingFangSC) 的 PingFang SC fallback：非 Apple Web 使用 `woff2`，客户端可使用 `ttf`，Apple 设备优先系统字体。详细方案见 [references/06-fonts.md](references/06-fonts.md)。字体资源只服务 Apple 风格或明确需要统一中文观感的项目，不作为 Android/Windows 默认字体。
