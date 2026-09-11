@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.3.1
+version: 1.3.2
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.3.1
+  version: 1.3.2
   category: productivity
   tags:
     - frontend
@@ -55,6 +55,8 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 - 可借用另一体系的原则，但同一操作面不要混合相互竞争的组件结构、状态模型或导航语义。
 
 完整决策树、冲突处理和跨平台翻译见 [18-platform-routing.md](references/18-platform-routing.md)。
+
+针对 iOS 26+ 与 Android OEM 碎片化场景，补充阅读 [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [28-semantic-components-testing.md](references/28-semantic-components-testing.md)。
 
 ## 调用流程
 
@@ -102,6 +104,9 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 | 文件 | 内容 |
 |---|---|
 | [18-platform-routing.md](references/18-platform-routing.md) | Android、Windows、Apple 与 Web 的选择决策树、冲突处理、跨平台翻译和验收路线 |
+| [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md) | iOS 26+ SwiftUI 与 Android OEM 的平台基线、分层和 Liquid Glass 边界 |
+| [27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) | WindowSizeClass、窗口/输入/系统能力、语义效果映射和 fallback |
+| [28-semantic-components-testing.md](references/28-semantic-components-testing.md) | 语义组件映射、Android OEM 测试矩阵、行为一致性与视觉容差 |
 
 ### Material & Google Design
 

@@ -24,6 +24,8 @@ Web 没有固定体系：消费、内容与创意产品倾向 Apple；企业生�
 
 完整决策树见 [references/18-platform-routing.md](references/18-platform-routing.md)。
 
+面向 iOS 26+ 与 Android 多 OEM 的共享语义、平台原生实现、自适应布局和测试策略见 [references/26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[references/27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [references/28-semantic-components-testing.md](references/28-semantic-components-testing.md)。
+
 ## 内容地图
 
 ### Material & Google Design
