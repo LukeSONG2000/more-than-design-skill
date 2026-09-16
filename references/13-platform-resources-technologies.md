@@ -9,6 +9,7 @@ The skill is for cross-platform Apple design reference. Apple-only platforms and
 | Platform reference | Cross-platform value | Use for | Do not use for | Motion posture |
 |---|---|---|---|---|
 | iOS | High | Phone-first Web/mobile flows, touch targets, nav stacks, tab bars, sheets | Desktop density or keyboard-heavy enterprise apps | short, direct, reach-aware |
+| iPhone Duo | High for adaptive principles; Apple-only for native APIs | Resizable phone/foldable layouts, dual-pane continuity, hinge avoidance, multi-display state | Copying Duo bars, reserved-region APIs or hardware behavior to Android/Web | system-owned layout transitions; optional hinge effects |
 | iPadOS | High | Tablet/desktop hybrids, split views, sidebars, toolbars, drag/drop | Phone-only flows or tiny screens | context-preserving |
 | macOS | High | Desktop Web apps, admin systems, data tools, sidebars, inspectors | Simple consumer mobile pages | restrained, expert-friendly |
 | Apple.com marketing | High for landing pages | Product storytelling, scroll chapters, hero sections | Dense app workflows | cinematic but purposeful |
@@ -34,6 +35,15 @@ The skill is for cross-platform Apple design reference. Apple-only platforms and
 - Use sheets for scoped tasks.
 - Respect safe areas and dynamic browser chrome.
 - Avoid hover-only interactions.
+
+### iPhone Duo
+
+- Treat it as an adaptable iPhone, not a separate app or a set of pose-specific screens.
+- Use size class, safe area, layout margins and reserved regions; never infer layout from a fixed display size or `UIScreen.main`.
+- Preserve state, functionality and information hierarchy between outer/inner displays; expose more hierarchy on the inner display when useful.
+- Prefer standard navigation containers so split views, sheets, menus, toolbars and tab bars adapt automatically.
+- Let the system own vertical bars, overflow and pose transitions. Use hinge angle only for optional effects or interactions, not layout.
+- Load [29-iphone-duo-adaptation.md](29-iphone-duo-adaptation.md) before implementing Duo behavior. Its iOS 27.1 APIs are Apple-only and require availability/fallback checks.
 
 ### iPadOS
 
@@ -150,6 +160,8 @@ Use this stricter bar for identity, payment, health, home, location, AI, camera/
 - Apple Fonts: https://developer.apple.com/fonts/
 - SF Symbols: https://developer.apple.com/sf-symbols/
 - Apple Style Guide: https://support.apple.com/guide/applestyleguide/welcome/web
+- Designing for iPhone Duo: https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
+- Get ready for iPhone Duo: https://developer.apple.com/iphone-duo/
 - AirPlay: https://developer.apple.com/design/human-interface-guidelines/airplay
 - Apple Pay: https://developer.apple.com/design/human-interface-guidelines/apple-pay
 - App Clips: https://developer.apple.com/design/human-interface-guidelines/app-clips

@@ -18,11 +18,15 @@
 至少覆盖下列组合，不要求穷举全部 OEM：
 
 - Android 最新稳定版与一个仍在支持的旧版本。
-- Pixel、Samsung、Xiaomi，以及一台 OPPO 或 vivo 设备；发现问题后记录能力和系统版本，而不是只记录品牌。
-- Compact、Medium、Expanded 窗口；竖屏、横屏、分屏和折叠姿态（项目支持时）。
+- 依据真实用户选择少量代表性 OEM/真机；问题记录必须包含设备、API、窗口、能力和库版本，不能只记录品牌。
+- Compact、Medium、Expanded；面向桌面/超大屏时增加 Large、Extra large。覆盖竖屏、横屏、分屏和折叠姿态。
 - 触控、键盘/鼠标、手写笔（项目支持时）；系统手势返回与三键导航（Android）。
 - 浅色、深色、Dynamic Color、高对比度、超大字体、RTL 和系统字号变化。
 - 弱网、后台恢复、进程重建、键盘出现/消失、系统栏变化和旋转。
+
+Android 折叠屏项目默认以 Tier 2 Adaptive optimized 为交付基线；只有产品确实利用 posture、相机、拖放或多显示时才要求 Tier 1。额外覆盖 outer/inner、tabletop/book、单柔性屏/双屏/多铰链、FoldingFeature 的 occlusion/separation 组合、pane/navigation 切换、配置重建和 display-mode fallback，详见 [30-android-foldable-adaptation.md](30-android-foldable-adaptation.md)。
+
+iPhone Duo 项目额外覆盖：外屏/内屏、闭合/展开/书本式/桌面式姿态、Split View、摄像头与折叠 reserved regions、四边不对称 safe area、横向/竖向系统栏、RTL、overflow/compression，以及 iOS 27.1 API 不可用时的普通 iPhone fallback。完整矩阵见 [29-iphone-duo-adaptation.md](29-iphone-duo-adaptation.md)。
 
 ## 两类验收
 
@@ -54,9 +58,12 @@
 
 ## 官方入口
 
-- [Android adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive)
+- [Android Adaptive Apps](https://developer.android.com/develop/adaptive-apps)
+- [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality)
 - [Android accessibility](https://developer.android.com/guide/topics/ui/accessibility)
 - [Material accessibility](https://m3.material.io/foundations/accessible-design/overview)
 - [Android testing](https://developer.android.com/training/testing)
 - [Apple accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 - [Apple testing and Xcode](https://developer.apple.com/documentation/xcode)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Prepare your app for iPhone Duo](https://developer.apple.com/videos/play/tech-talks/111461/)

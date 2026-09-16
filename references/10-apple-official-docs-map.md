@@ -1,6 +1,6 @@
 # Apple Official Docs Crawl Map
 
-Crawled snapshot: 2026-07-15. Source scope: Apple Human Interface Guidelines, Apple Design Resources, Apple Fonts, SF Symbols, Apple Style Guide, and selected Apple Developer documentation for Liquid Glass, materials, color, motion, menus, and navigation transitions.
+Crawled snapshot: 2026-09-15. Source scope: Apple Human Interface Guidelines, Apple Design Resources, Apple Fonts, SF Symbols, Apple Style Guide, and selected Apple Developer documentation for Liquid Glass, materials, color, motion, menus, navigation transitions, and iPhone Duo.
 
 This file is the routing map. It lists where Apple official material lives and which local reference to load before implementing a frontend. It intentionally stores titles, URLs, and frontend routing notes rather than long copied passages from Apple docs.
 
@@ -32,6 +32,7 @@ This file is the routing map. It lists where Apple official material lives and w
 | Patterns: loading, search, privacy, onboarding | `11-hig-foundations-patterns.md` | `04-accessibility.md`, `09-motion-templates.md` | Flow design and system states |
 | Components and inputs | `12-hig-components-inputs.md` | `02-components.md`, `07-motion.md`, `15-liquid-glass-controls.md` | Buttons, sheets, menus, tables, forms, keyboard/pointer/touch, Liquid Glass controls |
 | Platform adaptation | `13-platform-resources-technologies.md` | `03-patterns.md`, `04-accessibility.md` | Apply platform references with transferability filter |
+| iPhone Duo / foldable adaptation | `29-iphone-duo-adaptation.md` | `13-platform-resources-technologies.md`, `27-adaptive-platform-capabilities.md`, `28-semantic-components-testing.md` | Dual displays, poses, reserved regions, arrangements, vertical bars, scenes, cameras, testing, cross-platform boundary |
 | Apple resources and brand technologies | `13-platform-resources-technologies.md` | `06-fonts.md`, `01-tokens.md` | Use Apple-only resources only when licensed/supported; provide fallback |
 | Liquid Glass / materials / motion | `14-liquid-glass-adoption.md`, `15-liquid-glass-controls.md`, `16-liquid-glass-api-motion-color.md`, `17-liquid-glass-deep-link-map.md` | `07-motion.md`, `09-motion-templates.md`, `01-tokens.md` | Adoption audit, controls, API examples, color/Dark Mode, glass material, morph, scroll-edge scenes, official deep-link routing |
 
@@ -108,6 +109,14 @@ Liquid Glass has a standalone route because it crosses foundations, controls, mo
 | Apple doc | URL | Applicability | Local extraction | Frontend use |
 |---|---|---|---|---|
 | Designing for iOS | https://developer.apple.com/design/human-interface-guidelines/designing-for-ios | Platform-informed transferable | `13-platform-resources-technologies.md` | Phone-first touch layouts, navigation stacks, tab bars, sheets |
+| Designing for iPhone Duo | https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo | Core adaptive principles / Apple-only APIs inside | `29-iphone-duo-adaptation.md` | Resizable layouts, display continuity, reserved regions, split/arrangement views, vertical controls and pose testing |
+| Get ready for iPhone Duo | https://developer.apple.com/iphone-duo/ | Apple platform portal | `29-iphone-duo-adaptation.md` | Current tools, documentation, workshops and the six official Tech Talks |
+| Design for iPhone Duo | https://developer.apple.com/videos/play/tech-talks/111466/ | Design principles | `29-iphone-duo-adaptation.md` | Device/display model, continuity, reachability and resizability |
+| Prepare your app for iPhone Duo | https://developer.apple.com/videos/play/tech-talks/111461/ | Implementation baseline | `29-iphone-duo-adaptation.md` | SDK behavior, Device Hub, size classes, screen assumptions, safe areas and standard navigation |
+| Raise the bar with iPhone Duo | https://developer.apple.com/videos/play/tech-talks/111462/ | Apple-only navigation behavior | `29-iphone-duo-adaptation.md` | Vertical bars, grouping, axis behavior, compression, overflow and opt-out rules |
+| Strike a pose with adaptive layouts | https://developer.apple.com/videos/play/tech-talks/111463/ | Core adaptive principles / Apple-only APIs inside | `29-iphone-duo-adaptation.md` | Reserved regions, displacement, Arrangement View and hinge-safe custom layouts |
+| Leverage multiple displays and scenes | https://developer.apple.com/videos/play/tech-talks/111464/ | Apple-only scenes / transferable continuity | `29-iphone-duo-adaptation.md` | Split View, multiple scene instances, scene accessories and hinge effects |
+| Build a great camera experience | https://developer.apple.com/videos/play/tech-talks/111465/ | Apple-only camera capability | `29-iphone-duo-adaptation.md` | Virtual front camera, direction coordinator, preview geometry and rotation |
 | Designing for iPadOS | https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados | Platform-informed transferable | `13-platform-resources-technologies.md` | Split views, sidebars, toolbars, drag/drop, pointer/keyboard |
 | Designing for macOS | https://developer.apple.com/design/human-interface-guidelines/designing-for-macos | Platform-informed transferable | `13-platform-resources-technologies.md` | Dense desktop workflows, menus, inspectors, multi-pane layouts |
 | Designing for watchOS | https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos | Scenario inspiration | `13-platform-resources-technologies.md` | Extract glanceable/compact constraints; do not mimic watch UI by default |

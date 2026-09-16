@@ -6,13 +6,15 @@
 
 | 能力 | 首选判断 | 设计决策 |
 |---|---|---|
-| 窗口宽度 | `WindowSizeClass`：Compact / Medium / Expanded | bottom navigation、navigation rail、persistent navigation drawer 的切换 |
+| 窗口宽度 | `WindowSizeClass`：Compact / Medium / Expanded / Large / Extra large | navigation bar/rail/drawer、pane 数量和内容最大宽度 |
 | 窗口高度 | 可用窗口高度和 `WindowInsets` | 工具栏、键盘、底部操作区是否需要滚动或折叠 |
-| 折叠/双屏 | Jetpack WindowManager posture | 避开 hinge，分栏或跨屏展示，不把铰链当普通空白 |
+| 折叠/双屏 | `FoldingFeature` 的 bounds/state/orientation/occlusion/separation | 避开 hinge，选择 tabletop/book 与 pane；不依赖精确铰链角度 |
 | 方向 | 当前窗口 orientation | 横屏使用更宽的信息布局，不能只放大竖屏布局 |
 | 输入 | touch、mouse、keyboard、stylus | 触控目标、悬停、右键、快捷键和焦点路径分别验证 |
 | 系统栏 | `WindowInsets` 与 edge-to-edge 状态 | 内容、手势区和 transient system bar 不互相遮挡 |
 | 颜色/主题 | Dynamic Color、深色模式、对比度偏好 | Material 语义色重新计算，不硬编码品牌色覆盖可读性 |
+
+Android 折叠屏的详细能力、canonical pane、display modes 和测试要求集中在 [30-android-foldable-adaptation.md](30-android-foldable-adaptation.md)。本文件只保留跨平台能力抽象。
 
 ## iOS 能力矩阵
 
@@ -25,12 +27,32 @@
 | 指针/触控/VoiceOver | 保留可见焦点、语义标签、触控目标和辅助技术顺序 |
 | Liquid Glass 可用性 | 仅在原生系统组件或明确支持的自定义路径中启用，其他情况退化到语义材质 |
 
+## iPhone Duo 能力矩阵
+
+| 能力 | 首选判断 | 设计决策 |
+|---|---|---|
+| 外屏/内屏容量 | 当前 size class、scene bounds | compact 使用单工作面，regular 可展开主从层级；保留状态与任务 |
+| 非对称边缘 | 每一边的 safe area / layout margin | 前景逐边避让，背景可延伸，不假设左右 inset 对称 |
+| 摄像头/折叠区 | active reserved regions | 高优先级自定义内容避开 occlusion/division region；标准容器交给系统 |
+| 双视图关系 | 内容语义 + aspect ratio + division region | 主从优先 split，前景/背景优先 overlay；无明确关系时不用 Arrangement View |
+| 系统栏容量 | 原生 navigation container 与系统 vertical bar behavior | 保留导航/Tab 或 toolbar 的任务优先级，使用系统 overflow 与 visibility priority |
+| 姿态效果 | hinge capability、state、angle、Reduce Motion | 只驱动效果与交互，不计算主体布局；无能力时静态 fallback |
+| 辅助显示 | scene accessory availability | 仅提供补充内容，核心操作在 accessory 不可用时仍完整 |
+
+Duo 专项实现与 API 路由见 [29-iphone-duo-adaptation.md](29-iphone-duo-adaptation.md)。Android 折叠屏继续使用 Jetpack WindowManager，不能复用 Apple Reserved Region、Arrangement View 或 vertical bar API。
+
 ## 能力抽象示例
 
 ```text
 PlatformCapabilities
-  windowClass: compact | medium | expanded
-  input: touch | pointer | keyboard | stylus
+  widthClass: compact | medium | expanded | large | extraLarge
+  heightClass: compact | medium | expanded
+  separatingRegions[]
+  occludingRegions[]
+  posture: flat | tabletop | book | other
+  paneCapacity: one | two | three
+  secondaryDisplayAvailable: bool
+  inputCapabilities[]
   supportsDynamicColor: bool
   supportsLiquidGlass: bool
   supportsPredictiveBack: bool
@@ -54,10 +76,13 @@ PlatformCapabilities
 
 ## 官方入口
 
-- [Material 3 Adaptive](https://developer.android.com/develop/ui/compose/layouts/adaptive)
-- [Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)
-- [Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes)
+- [Adaptive Apps](https://developer.android.com/develop/adaptive-apps)
+- [Window size classes](https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes)
+- [Support different display sizes](https://developer.android.com/develop/adaptive-apps/guides/support-different-display-sizes)
+- [Make your app fold aware](https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware)
 - [Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window)
 - [Apple Layout](https://developer.apple.com/design/human-interface-guidelines/layout)
 - [Apple Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 - [Apple Motion](https://developer.apple.com/design/human-interface-guidelines/motion)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Strike a pose with adaptive layouts](https://developer.apple.com/videos/play/tech-talks/111463/)

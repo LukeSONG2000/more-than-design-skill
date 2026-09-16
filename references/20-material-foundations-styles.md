@@ -111,6 +111,8 @@ Material 3 是可适配的 Design System，不是固定皮肤。Android 项目�
 
 布局骨架见 [Scaffold](https://m3.material.io/foundations/layout/scaffold/overview)，网格与密度见 [Grids and spacing](https://m3.material.io/foundations/layout/grids-spacing/overview) 和 [Density](https://m3.material.io/foundations/layout/grids-spacing/density)。
 
+本节只维护通用 Material 自适应布局和视觉策略。Android `FoldingFeature`、tabletop/book posture、canonical pane 实现、display modes、质量分级及 Apple Duo 对齐统一见 [30-android-foldable-adaptation.md](30-android-foldable-adaptation.md)。
+
 ## 颜色
 
 [Material color system](https://m3.material.io/styles/color/system/overview) 用语义角色组织颜色，而不是按页面随意选色。当前体系包含 primary、secondary、tertiary、error、surface、outline 等角色族，并通过 `on-*` 前景与 `*-container` 容器配对保持层级和对比。

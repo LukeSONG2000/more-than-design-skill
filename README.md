@@ -6,7 +6,7 @@
 
 | 目标 | 设计规范 | 开发文档 |
 |---|---|---|
-| Android 手机、平板、折叠屏 | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile)、[Material 3](https://m3.material.io/) | [Material 3 Develop](https://m3.material.io/develop)、[Android UI](https://developer.android.google.cn/develop/ui) |
+| Android 手机、平板、折叠屏 | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile)、[Material 3](https://m3.material.io/) | [Adaptive Apps](https://developer.android.com/develop/adaptive-apps)、[Material 3 Develop](https://m3.material.io/develop) |
 | Windows 桌面应用 | [Windows Design](https://learn.microsoft.com/en-us/windows/apps/design/)、[Fluent 2](https://fluent2.microsoft.design/) | [Windows development](https://developer.microsoft.com/zh-cn/windows/develop)、[WinUI 3](https://learn.microsoft.com/windows/apps/winui/winui3/) |
 | Apple 生态 | [Apple Design / HIG](https://developer.apple.com/cn/design/) | [Apple Developer Documentation](https://developer.apple.com/documentation/) |
 | Web | 结合品牌、工作流和现有组件库选择 | 项目技术栈优先，不伪装系统专属能力 |
@@ -26,6 +26,10 @@ Web 没有固定体系：消费、内容与创意产品倾向 Apple；企业生�
 
 面向 iOS 26+ 与 Android 多 OEM 的共享语义、平台原生实现、自适应布局和测试策略见 [references/26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[references/27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [references/28-semantic-components-testing.md](references/28-semantic-components-testing.md)。
 
+iPhone Duo 的双显示、折叠姿态、Reserved Region、Arrangement View、竖向系统栏、多场景与双前摄适配见 [references/29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md)。Duo 专有能力不能直接当作 Android/Web 的通用折叠屏 API。
+
+Android 折叠屏的窗口容量、`FoldingFeature`、tabletop/book posture、canonical panes、adaptive navigation、显示模式和质量分级见 [references/30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md)，其中包含与 Apple Duo 的共享设计语义和不可一对一映射项。
+
 ## 内容地图
 
 ### Material & Google Design
@@ -36,6 +40,7 @@ Web 没有固定体系：消费、内容与创意产品倾向 Apple；企业生�
 | [20-material-foundations-styles.md](references/20-material-foundations-styles.md) | 无障碍、内容、Design Token、状态、布局、颜色、字体、elevation、shape、spacing、icon |
 | [21-material-components-map.md](references/21-material-components-map.md) | Material 3 全组件 overview/guidelines/specs/accessibility 索引 |
 | [22-material-motion.md](references/22-material-motion.md) | Motion physics、Expressive/Standard、Spatial/Effects、转场和 Web fallback |
+| [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md) | Android 折叠屏与 Adaptive Apps 专项，以及 Apple Duo 语义对齐 |
 
 ### Microsoft Design
 
@@ -52,6 +57,7 @@ Web 没有固定体系：消费、内容与创意产品倾向 Apple；企业生�
 - [HIG Foundations / Patterns](references/11-hig-foundations-patterns.md)
 - [HIG Components / Inputs](references/12-hig-components-inputs.md)
 - [平台、资源、字体和技术品牌](references/13-platform-resources-technologies.md)
+- [iPhone Duo 折叠屏适配](references/29-iphone-duo-adaptation.md)
 - [Liquid Glass adoption](references/14-liquid-glass-adoption.md)
 - [Liquid Glass controls](references/15-liquid-glass-controls.md)
 - [Liquid Glass API、Motion 与 Color](references/16-liquid-glass-api-motion-color.md)

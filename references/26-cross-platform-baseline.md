@@ -37,12 +37,19 @@ androidApp/
 - 自定义玻璃只在确有需要时使用，并遵守 HIG 的功能层与内容层边界；提供旧系统或非 Apple 平台 fallback。
 - 将 `safeArea`、size class、键盘、指针、VoiceOver、Reduce Motion 和高对比度作为能力输入，而不是固定设备型号判断。
 
+### iPhone Duo / iOS 27.1
+
+- iOS 26+ 仍是通用 Apple UI 与 Liquid Glass 基线；Duo 的 Reserved Region、Arrangement View、竖向系统栏、Hinge、scene accessory 和双前摄能力按 iOS 27.1 SDK 单独判断。
+- 共享层只表达 `foldAvoidance`、`dualPane`、`secondaryDisplay` 等任务语义。Apple 层按 [29-iphone-duo-adaptation.md](29-iphone-duo-adaptation.md) 实现，Android 层使用 Material Adaptive 与 Jetpack WindowManager。
+- Duo 布局使用当前窗口的 size class、safe area 和 reserved regions，不按设备名称或 orientation 分支；新 API 不可用时退回普通可调整尺寸 iPhone 布局。
+
 ### Android 多 OEM
 
 - Jetpack Compose + Material 3/Material 3 Adaptive 为首选；传统 Views 只在现有代码或平台 API 需要时使用。
 - `compileSdk`/`targetSdk` 跟随最新稳定版本；`minSdk` 依据真实覆盖率决定。新 API 先做 capability check，再进入 fallback。
 - 使用 AndroidX、WindowManager/Adaptive 布局、WindowInsets、系统返回和动态颜色；不要按 Samsung、Xiaomi、OPPO、vivo 等品牌写分支。
 - 不把 Android 复制成 iOS：Material 的 top app bar、navigation bar/rail、FAB、list 和 surface 层级应按 Android 语义选择。
+- 折叠屏先按当前 window size class 建立可调整尺寸基线，再用 `FoldingFeature` 与 posture 做针对性增强；详细规则和 Apple Duo 语义对齐见 [30-android-foldable-adaptation.md](30-android-foldable-adaptation.md)。
 
 ## 不推荐的路线
 
@@ -62,6 +69,7 @@ androidApp/
 - [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile)
 - [Material 3](https://m3.material.io/)
 - [Jetpack Compose Material 3](https://m3.material.io/develop/android/jetpack-compose)
-- [Material 3 Adaptive](https://developer.android.com/develop/ui/compose/layouts/adaptive)
-- [Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)
+- [Adaptive Apps](https://developer.android.com/develop/adaptive-apps)
+- [Window size classes](https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes)
 - [AndroidX WindowManager](https://developer.android.com/jetpack/androidx/releases/window)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)

@@ -38,6 +38,7 @@
 | HIG Foundations / Patterns | `11-hig-foundations-patterns.md` | HIG: Accessibility, Color, Layout, Loading, Searching, Privacy, Modality |
 | HIG Components / Inputs | `12-hig-components-inputs.md` | HIG: Buttons, Toolbars, Sheets, Lists, Menus, Text fields, Keyboards, Pointers |
 | iOS / iPadOS / macOS 适配 | `13-platform-resources-technologies.md`, `03-patterns.md`, `04-accessibility.md` | HIG: Designing for iOS / iPadOS / macOS |
+| iPhone Duo / Apple 折叠屏适配 | `29-iphone-duo-adaptation.md`, `13-platform-resources-technologies.md`, `27-adaptive-platform-capabilities.md`, `28-semantic-components-testing.md` | HIG: Designing for iPhone Duo; six iPhone Duo Tech Talks; Layout, Split views, Toolbars, Multitasking, Games |
 | tvOS / watchOS / visionOS 启发 | `13-platform-resources-technologies.md`, `07-motion.md`, `09-motion-templates.md` | HIG: Designing for tvOS / watchOS / visionOS; Focus, Spatial design |
 | 图标 / symbol / 空状态 | `01-tokens.md`, `02-components.md` | HIG: Icons, SF Symbols; SF Symbols app/resources |
 | 文案 / 产品命名 / 按钮文字 | `04-accessibility.md` | Apple Style Guide; HIG Writing |
@@ -50,6 +51,7 @@
 | Apple 文档区域 | 前端落地 |
 |---|---|
 | Designing for iOS | mobile-first navigation, large touch targets, safe areas, sheets, tab bars |
+| Designing for iPhone Duo | 基于 size class 扩展既有 iPhone 信息结构；处理双显示、reserved regions、折叠姿态与竖向系统栏；Apple 专有 API 见 `29-iphone-duo-adaptation.md` |
 | Designing for iPadOS | adaptive columns, sidebars, split views, pointer/keyboard, drag and drop |
 | Designing for macOS | dense controls, menu bars/toolbars, window chrome, keyboard-first workflows |
 | Designing for watchOS | glanceable content, minimal text, quick state transitions |
@@ -148,6 +150,7 @@ Developer docs are useful when a frontend needs to mimic native behavior without
 Before delivering an Apple-style frontend, check:
 
 - [ ] Which Apple platform is the primary reference: iOS, iPadOS, macOS, watchOS, tvOS, visionOS, or Apple.com marketing?
+- [ ] If targeting iPhone Duo, did the app preserve state and functionality across displays, poses, Split View, asymmetric safe areas, reserved regions, and horizontal/vertical bars?
 - [ ] Did the design use semantic tokens instead of hard-coded decorative colors?
 - [ ] Is motion tied to feedback, continuity, hierarchy, or loading clarity?
 - [ ] Are motion templates selected from `09-motion-templates.md` and tokenized by `07-motion.md`?
@@ -203,3 +206,5 @@ Before delivering an Apple-style frontend, check:
 - UIKit UIVibrancyEffect: https://developer.apple.com/documentation/UIKit/UIVibrancyEffect
 - AppKit NSVisualEffectView.BlendingMode: https://developer.apple.com/documentation/AppKit/NSVisualEffectView/BlendingMode-swift.enum
 - SwiftUI Material: https://developer.apple.com/documentation/SwiftUI/Material
+- Designing for iPhone Duo: https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
+- Get ready for iPhone Duo: https://developer.apple.com/iphone-duo/

@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.3.2
+version: 1.3.4
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.3.2
+  version: 1.3.4
   category: productivity
   tags:
     - frontend
@@ -38,9 +38,9 @@ metadata:
 
 | 目标 | 默认设计体系 | 默认开发体系 | 首读 |
 |---|---|---|---|
-| Android 手机、平板、折叠屏 | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile) + [Material 3](https://m3.material.io/) | [Jetpack Compose Material 3](https://m3.material.io/develop/android/jetpack-compose)，必要时 Android Views | [19-google-android-map.md](references/19-google-android-map.md) |
+| Android 手机、平板、折叠屏 | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile) + [Material 3](https://m3.material.io/) | [Android Adaptive Apps](https://developer.android.com/develop/adaptive-apps) + Jetpack Compose Material 3，必要时 Android Views | [19-google-android-map.md](references/19-google-android-map.md)；折叠屏另读 [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md) |
 | Windows 桌面应用 | [Windows Design](https://learn.microsoft.com/en-us/windows/apps/design/) + [Fluent 2](https://fluent2.microsoft.design/) | [WinUI 3](https://learn.microsoft.com/windows/apps/winui/winui3/) + Windows App SDK | [23-microsoft-windows-map.md](references/23-microsoft-windows-map.md) |
-| iPhone、iPad、Mac、Watch、TV、Vision、CarPlay | [Apple Design / HIG](https://developer.apple.com/cn/design/) | [Apple Developer Documentation](https://developer.apple.com/documentation/) | [10-apple-official-docs-map.md](references/10-apple-official-docs-map.md) |
+| iPhone、iPhone Duo、iPad、Mac、Watch、TV、Vision、CarPlay | [Apple Design / HIG](https://developer.apple.com/cn/design/) | [Apple Developer Documentation](https://developer.apple.com/documentation/) | [10-apple-official-docs-map.md](references/10-apple-official-docs-map.md)；Duo 另读 [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md) |
 | Web | 按产品语境选择，不固定套用一个体系 | 项目现有框架优先 | [18-platform-routing.md](references/18-platform-routing.md) |
 
 目标平台规则优先于视觉偏好。Android 不复刻 iOS 控件解剖，Windows 不套移动端导航，Apple 平台不以 Web 毛玻璃模拟系统材质。
@@ -56,7 +56,7 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 
 完整决策树、冲突处理和跨平台翻译见 [18-platform-routing.md](references/18-platform-routing.md)。
 
-针对 iOS 26+ 与 Android OEM 碎片化场景，补充阅读 [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [28-semantic-components-testing.md](references/28-semantic-components-testing.md)。
+针对 iOS 26+ 与 Android OEM 碎片化场景，补充阅读 [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [28-semantic-components-testing.md](references/28-semantic-components-testing.md)。涉及 iPhone Duo 时必须再读 [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md)；涉及 Android 折叠屏时必须再读 [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md)。
 
 ## 调用流程
 
@@ -85,9 +85,9 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 
 ### 平台专属能力
 
-- Android 专属或强绑定：Dynamic Color、Predictive Back、系统栏/WindowInsets、Android 小组件与通知模型。
+- Android 专属或强绑定：Dynamic Color、Predictive Back、系统栏/WindowInsets、`FoldingFeature`、Material Adaptive pane/navigation、Android 小组件与通知模型。
 - Windows 专属或强绑定：Mica、Acrylic、Smoke、WinUI 标题栏、Windows 命令与窗口模型。
-- Apple 专属或强绑定：Liquid Glass 系统呈现、SF Symbols、Dynamic Island、Live Activities、CarPlay、visionOS 空间输入、Digital Crown。
+- Apple 专属或强绑定：Liquid Glass 系统呈现、SF Symbols、Dynamic Island、Live Activities、iPhone Duo 竖向系统栏/Reserved Region/Arrangement View/场景附件、CarPlay、visionOS 空间输入、Digital Crown。
 - 跨平台实现必须提供中性 fallback，并明确它是语义对应，不声称等同系统原生效果。
 
 ## 无障碍底线
@@ -116,6 +116,7 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 | [20-material-foundations-styles.md](references/20-material-foundations-styles.md) | Material 3 无障碍、内容、Token、状态、布局、色彩、字体、elevation、shape、spacing、icon |
 | [21-material-components-map.md](references/21-material-components-map.md) | Material 3 全组件 overview/guidelines/specs/accessibility 索引与组件选择规则 |
 | [22-material-motion.md](references/22-material-motion.md) | Material 3 Expressive motion、空间/效果动效、过渡模式、Web fallback 和 reduced motion |
+| [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md) | Android 折叠屏、Adaptive Apps、WindowManager、pane/navigation、显示模式、测试与 Apple Duo 语义对齐 |
 
 ### Microsoft Design
 
@@ -134,6 +135,7 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 | [11-hig-foundations-patterns.md](references/11-hig-foundations-patterns.md) | HIG Foundations 与 Patterns |
 | [12-hig-components-inputs.md](references/12-hig-components-inputs.md) | HIG Components 与 Inputs |
 | [13-platform-resources-technologies.md](references/13-platform-resources-technologies.md) | Apple 平台差异、资源、字体、SF Symbols 和技术品牌 |
+| [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md) | iPhone Duo 双显示、折叠姿态、Reserved Region、Arrangement View、竖向系统栏、场景、相机与测试 |
 
 ### Apple Liquid Glass 专项
 

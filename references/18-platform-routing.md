@@ -16,7 +16,7 @@
 
 | 体系 | 设计规范 | 开发文档 | 本 skill 路由 |
 |---|---|---|---|
-| Google / Android | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile)、[Material 3](https://m3.material.io/) | [Material 3 Develop](https://m3.material.io/develop)、[Android Developers](https://developer.android.google.cn/develop/ui) | [19-google-android-map.md](19-google-android-map.md) |
+| Google / Android | [Android Mobile Design](https://developer.android.google.cn/design/ui/mobile)、[Material 3](https://m3.material.io/) | [Material 3 Develop](https://m3.material.io/develop)、[Adaptive Apps](https://developer.android.com/develop/adaptive-apps) | [19-google-android-map.md](19-google-android-map.md)；折叠屏见 [30-android-foldable-adaptation.md](30-android-foldable-adaptation.md) |
 | Microsoft / Windows | [Windows Design](https://learn.microsoft.com/en-us/windows/apps/design/)、[Fluent 2](https://fluent2.microsoft.design/) | [Windows development](https://developer.microsoft.com/zh-cn/windows/develop)、[WinUI 3](https://learn.microsoft.com/windows/apps/winui/winui3/) | [23-microsoft-windows-map.md](23-microsoft-windows-map.md) |
 | Apple | [Apple Design / HIG](https://developer.apple.com/cn/design/) | [Apple Developer Documentation](https://developer.apple.com/documentation/) | [10-apple-official-docs-map.md](10-apple-official-docs-map.md) |
 
@@ -25,7 +25,7 @@
 | 产品环境 | 主规范 | 关键约束 | 不应默认搬入 |
 |---|---|---|---|
 | Android 手机 | [Android Mobile](https://developer.android.google.cn/design/ui/mobile) + [Material 3](https://m3.material.io/) | Android 系统返回、edge-to-edge、WindowInsets、动态颜色、触控 | iOS 居中导航标题、Apple Tab Bar 解剖、Windows 标题栏 |
-| Android 大屏/折叠屏 | [Adaptive layouts](https://m3.material.io/foundations/layout/layout-overview/adaptive-design) + [Android adaptive UI](https://developer.android.google.cn/develop/ui/compose/layouts/adaptive) | window size class、posture、多窗格、键鼠与触控 | 固定手机宽度、按设备名而非窗口断点设计 |
+| Android 大屏/折叠屏 | [Adaptive Apps](https://developer.android.com/develop/adaptive-apps) + [Material adaptive design](https://m3.material.io/foundations/layout/layout-overview/adaptive-design) | 五档 window size class、folding features、posture、canonical panes、多窗口与多输入 | 固定手机宽度、按设备名设计、复制 iPhone Duo 的竖向栏/API |
 | Windows 桌面 | [Windows Design](https://learn.microsoft.com/en-us/windows/apps/design/) + [WinUI](https://learn.microsoft.com/windows/apps/winui/winui3/) | 窗口、标题栏、命令、键鼠、焦点、高对比度 | 移动端底部导航、触控专用手势、模拟 Mica 的普通 blur |
 | iPhone/iPad | [HIG](https://developer.apple.com/design/human-interface-guidelines/) + [UIKit/SwiftUI](https://developer.apple.com/documentation/) | 系统导航、标准控件、Dynamic Type、系统材料 | Android predictive back、Windows command bar |
 | macOS | [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos) + [AppKit](https://developer.apple.com/documentation/appkit) | 菜单栏、窗口、工具栏、键鼠、快捷键 | 把 iPhone 页面直接放大 |
