@@ -12,6 +12,8 @@
 | `LoadingState` | ProgressView/系统状态 | Circular/LinearProgressIndicator | 不丢失上下文、可取消时提供取消 |
 | `Navigation` | Tab bar/sidebar/navigation stack | NavigationBar/Rail/Drawer/NavHost | 路由结果、返回、恢复和深链一致 |
 | `Glass` | 系统组件或受控 Liquid Glass | Material surface/elevation fallback | 层级、对比度、点击区域和状态一致 |
+| `InterfaceIcon` | SF Symbols | Material Symbols | 共享语义/标签/状态，字形、weight、fill 和动效服从平台；Windows 使用 Segoe Fluent Icons，详见 `31` |
+| `AppIcon` | Icon Composer/Xcode | Adaptive Icon + Play listing | 共享品牌识别，遮罩、图层、商店资产和最终系统表面分别验收；Windows 见 `32` |
 
 ## 测试矩阵
 
@@ -41,6 +43,8 @@ iPhone Duo 项目额外覆盖：外屏/内屏、闭合/展开/书本式/桌面�
 - 允许导航结构、控件形状、字体渲染、阴影、材质和系统动画不同。
 - 必须一致的是信息优先级、文案含义、状态区分、触控目标、对比度和关键操作位置的可发现性。
 - 对截图比较先固定窗口和字体设置；不要用单一 iOS 截图作为 Android 的像素基准。
+- 图标比较关注语义、视觉重量、baseline、RTL 和可访问名称，不要求 SF/Material/Segoe 轮廓相同。
+- App Icon 必须区分源资产、生成产物、配置引用、最终包和实机表面；仓库存在文件或构建通过不能替代最终槽位验收。
 
 ## 交付记录模板
 

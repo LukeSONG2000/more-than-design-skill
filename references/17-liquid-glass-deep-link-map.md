@@ -96,9 +96,9 @@ Coverage rule: when an item is a concrete SwiftUI type (`GlassButtonStyle`, `Gla
 | https://developer.apple.com/design/human-interface-guidelines/sheets | Inset/rounded sheets can show content peeking through; task focus may require more opacity | `12`, `15`, `16` |
 | https://developer.apple.com/design/human-interface-guidelines/action-sheets | Action sheets originate from invoking controls; map to anchored contextual menus on Web | `12`, `15` |
 | https://developer.apple.com/design/human-interface-guidelines/lists-and-tables | Content-layer surfaces need padding/row rhythm, not permanent glass backgrounds | `11`, `12`, `16` |
-| https://developer.apple.com/design/human-interface-guidelines/app-icons | Liquid Glass-era app icons are layered and dynamic; Apple-specific export flow | `13`, `14`, this file |
+| https://developer.apple.com/design/human-interface-guidelines/app-icons | Liquid Glass-era app icons are layered and dynamic; Apple-specific export flow | `13`, `14`, `32`, this file |
 | https://developer.apple.com/design/human-interface-guidelines/icons | Toolbars/menus should use clear standard icons and accessible labels | `11`, `12`, `15` |
-| https://developer.apple.com/design/human-interface-guidelines/sf-symbols | Apple-only symbol resource; use the sizing/weight model, not unlicensed assets off Apple platforms | `13` |
+| https://developer.apple.com/design/human-interface-guidelines/sf-symbols | Apple-only symbol resource; use native semantic mappings off Apple platforms | `13`, `31` |
 
 Low-signal examples: HIG input pages can mention glass through page-level related cards, but if the page's main topic is gestures, game controllers, or generic touch behavior, keep it in `12-hig-components-inputs.md` unless the task is explicitly about glass overlays for those inputs.
 

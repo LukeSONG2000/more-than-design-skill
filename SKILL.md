@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.3.4
+version: 1.4.0
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.3.4
+  version: 1.4.0
   category: productivity
   tags:
     - frontend
@@ -58,6 +58,8 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 
 针对 iOS 26+ 与 Android OEM 碎片化场景，补充阅读 [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [28-semantic-components-testing.md](references/28-semantic-components-testing.md)。涉及 iPhone Duo 时必须再读 [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md)；涉及 Android 折叠屏时必须再读 [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md)。
 
+涉及界面图标时读取 [31-cross-platform-interface-icons.md](references/31-cross-platform-interface-icons.md)，按语义分别解析为 SF Symbols、Material Symbols 或 Segoe Fluent Icons。涉及应用品牌图标时读取 [32-cross-platform-app-icons.md](references/32-cross-platform-app-icons.md)，不要把界面 Symbol、商店图标、平台实渲 App Icon 和应用内 Logo 混为同一资产。
+
 ## 调用流程
 
 1. 确认运行平台、输入方式、窗口形态、技术栈和已有设计系统。
@@ -83,6 +85,12 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 - 动效包含状态变化、空间移动、转场、物理参数、编舞和 reduced motion。
 - Material 动效见 [22-material-motion.md](references/22-material-motion.md)，Microsoft 动效见 [25-microsoft-motion.md](references/25-microsoft-motion.md)，Apple 动效见 [07-motion.md](references/07-motion.md)、[09-motion-templates.md](references/09-motion-templates.md) 和 [16-liquid-glass-api-motion-color.md](references/16-liquid-glass-api-motion-color.md)。
 
+### 图标系统分层
+
+- 界面图标共享业务语义，不共享平台字体或 glyph：Apple 用 SF Symbols，Android/Material 用 Material Symbols，Windows 用 Segoe Fluent Icons/WinUI。
+- App Icon 共享品牌识别，不共享最终外框和平台效果；分别遵循 Icon Composer、Windows manifest/ICO 和 Android Adaptive Icon/Play 资产规则。
+- SF Symbols、Material Symbols、Segoe Fluent Icons、App Icon、商店图标和应用内 Logo 是不同资产层，禁止相互替代。
+
 ### 平台专属能力
 
 - Android 专属或强绑定：Dynamic Color、Predictive Back、系统栏/WindowInsets、`FoldingFeature`、Material Adaptive pane/navigation、Android 小组件与通知模型。
@@ -107,6 +115,8 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 | [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md) | iOS 26+ SwiftUI 与 Android OEM 的平台基线、分层和 Liquid Glass 边界 |
 | [27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) | WindowSizeClass、窗口/输入/系统能力、语义效果映射和 fallback |
 | [28-semantic-components-testing.md](references/28-semantic-components-testing.md) | 语义组件映射、Android OEM 测试矩阵、行为一致性与视觉容差 |
+| [31-cross-platform-interface-icons.md](references/31-cross-platform-interface-icons.md) | SF Symbols、Material Symbols、Segoe Fluent Icons 的语义、原生 API、RTL、无障碍和工具链 |
+| [32-cross-platform-app-icons.md](references/32-cross-platform-app-icons.md) | Apple、Windows、Android App Icon 的设计规范、派生方式、工具、打包槽位和最终表面验收 |
 
 ### Material & Google Design
 

@@ -107,8 +107,8 @@ Default Web / client / mobile products should usually stop at steps 1-3 unless t
 | UI Kits | Reference only | Platform measurement and component fidelity | Use to calibrate density/behavior; do not blindly copy into Web |
 | Product Bezels | Apple-only asset | README/marketing screenshots | Respect Apple usage terms and avoid misleading support claims |
 | Fonts | License-sensitive | SF Pro, SF Compact, SF Mono, New York, language-specific families | Do not redistribute Apple fonts unless license allows; use system stack on Apple devices |
-| SF Symbols | Apple-only asset | Symbol style, scale, weight | Use on Apple platforms; use licensed fallback icons elsewhere |
-| Icon templates | Platform-specific production | App icon production | Follow export/radius guidance; do not copy Apple app icons |
+| SF Symbols | Apple-only asset | Interface symbol style, rendering, scale, weight, variants | Use on Apple platforms; map semantics to Material/Windows alternatives elsewhere; see `31-cross-platform-interface-icons.md` |
+| Icon Composer / icon templates | Platform-specific production | Layered Apple App Icon and appearance variants | Keep unmasked layers and system effects; derive other platforms from the brand source, not Apple renders; see `32-cross-platform-app-icons.md` |
 | Technology templates | Brand-gated | Apple Pay, Wallet, Sign in with Apple, Health, HomeKit, etc. | Use official templates only for supported Apple technologies |
 
 Font policy:
@@ -159,6 +159,9 @@ Use this stricter bar for identity, payment, health, home, location, AI, camera/
 - Apple Design Resources: https://developer.apple.com/design/resources/
 - Apple Fonts: https://developer.apple.com/fonts/
 - SF Symbols: https://developer.apple.com/sf-symbols/
+- SF Symbols HIG: https://developer.apple.com/design/human-interface-guidelines/sf-symbols
+- App icons HIG: https://developer.apple.com/design/human-interface-guidelines/app-icons
+- Icon Composer: https://developer.apple.com/icon-composer/
 - Apple Style Guide: https://support.apple.com/guide/applestyleguide/welcome/web
 - Designing for iPhone Duo: https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
 - Get ready for iPhone Duo: https://developer.apple.com/iphone-duo/

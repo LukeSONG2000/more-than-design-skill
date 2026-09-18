@@ -1,6 +1,6 @@
 # Apple Official Docs Crawl Map
 
-Crawled snapshot: 2026-09-15. Source scope: Apple Human Interface Guidelines, Apple Design Resources, Apple Fonts, SF Symbols, Apple Style Guide, and selected Apple Developer documentation for Liquid Glass, materials, color, motion, menus, navigation transitions, and iPhone Duo.
+Crawled snapshot: 2026-09-18. Source scope: Apple Human Interface Guidelines, Apple Design Resources, Apple Fonts, SF Symbols, Icon Composer, Apple Style Guide, and selected Apple Developer documentation for Liquid Glass, app icons, symbols, materials, color, motion, menus, navigation transitions, and iPhone Duo.
 
 This file is the routing map. It lists where Apple official material lives and which local reference to load before implementing a frontend. It intentionally stores titles, URLs, and frontend routing notes rather than long copied passages from Apple docs.
 
@@ -31,6 +31,8 @@ This file is the routing map. It lists where Apple official material lives and w
 | Foundations: color, layout, typography, materials | `11-hig-foundations-patterns.md` | `01-tokens.md`, `03-patterns.md` | Visual system, semantic tokens, hierarchy, copy |
 | Patterns: loading, search, privacy, onboarding | `11-hig-foundations-patterns.md` | `04-accessibility.md`, `09-motion-templates.md` | Flow design and system states |
 | Components and inputs | `12-hig-components-inputs.md` | `02-components.md`, `07-motion.md`, `15-liquid-glass-controls.md` | Buttons, sheets, menus, tables, forms, keyboard/pointer/touch, Liquid Glass controls |
+| Interface icons / SF Symbols | `31-cross-platform-interface-icons.md` | `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | Symbol selection, rendering mode, weight, scale, variants, effects, availability, RTL and cross-platform semantic mapping |
+| App Icon / Icon Composer | `32-cross-platform-app-icons.md` | `14-liquid-glass-adoption.md`, `13-platform-resources-technologies.md` | Layered Apple icon production, appearance variants, platform composition, package verification and cross-platform brand derivation |
 | Platform adaptation | `13-platform-resources-technologies.md` | `03-patterns.md`, `04-accessibility.md` | Apply platform references with transferability filter |
 | iPhone Duo / foldable adaptation | `29-iphone-duo-adaptation.md` | `13-platform-resources-technologies.md`, `27-adaptive-platform-capabilities.md`, `28-semantic-components-testing.md` | Dual displays, poses, reserved regions, arrangements, vertical bars, scenes, cameras, testing, cross-platform boundary |
 | Apple resources and brand technologies | `13-platform-resources-technologies.md` | `06-fonts.md`, `01-tokens.md` | Use Apple-only resources only when licensed/supported; provide fallback |
@@ -93,7 +95,7 @@ Liquid Glass has a standalone route because it crosses foundations, controls, mo
 |---|---|---|---|
 | Accessibility | https://developer.apple.com/design/human-interface-guidelines/accessibility | `04-accessibility.md`, `11-hig-foundations-patterns.md` | Contrast, focus, screen reader, reduced motion/transparency |
 | Inclusion | https://developer.apple.com/design/human-interface-guidelines/inclusion | `11-hig-foundations-patterns.md` | Respectful copy, inclusive defaults, user-first presentation |
-| App icons | https://developer.apple.com/design/human-interface-guidelines/app-icons | `11-hig-foundations-patterns.md` | App icon production cues; do not copy Apple icons |
+| App icons | https://developer.apple.com/design/human-interface-guidelines/app-icons | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` | Layered unmasked artwork, appearance variants, system effects and platform-specific production |
 | Icons | https://developer.apple.com/design/human-interface-guidelines/icons | `11-hig-foundations-patterns.md` | Icon clarity, consistency, semantic use |
 | Color | https://developer.apple.com/design/human-interface-guidelines/color | `01-tokens.md`, `11-hig-foundations-patterns.md` | Semantic colors, contrast, brand blue discipline |
 | Dark Mode | https://developer.apple.com/design/human-interface-guidelines/dark-mode | `01-tokens.md`, `11-hig-foundations-patterns.md` | Dark palettes, elevated surfaces, images in dark UI |
@@ -102,7 +104,7 @@ Liquid Glass has a standalone route because it crosses foundations, controls, mo
 | Motion | https://developer.apple.com/design/human-interface-guidelines/motion | `07-motion.md`, `09-motion-templates.md` | Purposeful motion, continuity, reduced motion |
 | Typography | https://developer.apple.com/design/human-interface-guidelines/typography | `01-tokens.md`, `06-fonts.md`, `11-hig-foundations-patterns.md` | Font stacks, hierarchy, readability |
 | Writing | https://developer.apple.com/design/human-interface-guidelines/writing | `04-accessibility.md`, `11-hig-foundations-patterns.md` | Concise labels, action copy, error/help text |
-| SF Symbols | https://developer.apple.com/design/human-interface-guidelines/sf-symbols | `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | Symbol weight/scale, icon fallback, license awareness |
+| SF Symbols | https://developer.apple.com/design/human-interface-guidelines/sf-symbols | `31-cross-platform-interface-icons.md`, `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | Rendering modes, weight/scale, variants, effects, fallback and license awareness |
 
 ## 6. Platform design
 
@@ -235,7 +237,8 @@ Liquid Glass has a standalone route because it crosses foundations, controls, mo
 |---|---|---|---|---|
 | Design Resources root | https://developer.apple.com/design/resources/ | Reference / license-sensitive | `13-platform-resources-technologies.md` | Official UI kits, bezels, fonts, symbols, technology assets |
 | Apple Fonts | https://developer.apple.com/fonts/ | Apple-only / license-sensitive | `06-fonts.md`, `13-platform-resources-technologies.md` | SF/New York awareness; use system stack or legal fallback |
-| SF Symbols | https://developer.apple.com/sf-symbols/ | Apple-only / license-sensitive | `13-platform-resources-technologies.md` | Apple-only symbol assets; use licensed fallback icons off Apple platforms |
+| SF Symbols | https://developer.apple.com/sf-symbols/ | Apple-only / license-sensitive | `31-cross-platform-interface-icons.md`, `13-platform-resources-technologies.md` | Browse availability, variants, rendering, animation and custom Symbols; use platform-native alternatives off Apple platforms |
+| Icon Composer | https://developer.apple.com/icon-composer/ | Apple app-icon production | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` | Build layered Apple icons, per-platform compositions and appearance variants; flattened export is not the native source |
 | Apple Style Guide | https://support.apple.com/guide/applestyleguide/welcome/web | Core transferable for writing | `11-hig-foundations-patterns.md` | Product terms, writing style, capitalization |
 | Liquid Glass overview | https://developer.apple.com/documentation/technologyoverviews/liquid-glass | Platform-informed transferable | `14-liquid-glass-adoption.md`, `16-liquid-glass-api-motion-color.md`, `09-motion-templates.md` | Extract material hierarchy and continuity; provide fallback |
 | Adopting Liquid Glass | https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass | Core transferable / Apple-specific APIs inside | `14-liquid-glass-adoption.md` | Migration checklist for controls, navigation, toolbars, modals, layout, search, icons |

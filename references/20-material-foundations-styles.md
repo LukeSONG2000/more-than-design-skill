@@ -175,13 +175,15 @@ Android 12/API 31 起可从壁纸或内容源生成动态方案；设计概念�
 
 ## Icons
 
-[Material icons](https://m3.material.io/styles/icons/overview) 推荐 Material Symbols。它是可变图标字体，支持 weight、fill、optical size、grade 等轴，并提供 outlined、rounded 和 sharp 风格。
+[Material icons](https://m3.material.io/styles/icons/overview) 推荐 Material Symbols。它支持 `FILL`、`wght`、`GRAD`、`opsz` 等轴，并提供 Outlined、Rounded 和 Sharp 风格。
 
 - 一个产品区域内保持一致风格和光学尺寸。
 - 选中状态可在 outlined/filled 间变化，但不能只靠 fill 表达关键状态。
 - 图标按钮必须有可访问名称；生僻图标配文本或 tooltip。
-- 自定义图标应遵守 [Designing icons](https://m3.material.io/styles/icons/designing-icons) 的网格、笔画和简化规则。
+- 自定义图标使用 24dp 基准画布、20dp live area、2dp padding 和官方 keyline；常规 stroke/weight 为 2dp/400。
+- Compose 旧 `material-icons-*` 图标库不再是最新推荐；从 [Google Fonts Icons](https://fonts.google.com/icons) 下载 Android XML，再通过 `Icon` 使用。
 - 平台迁移时换成目标平台图标资产；Material Symbols 不应覆盖 SF Symbols 或 Segoe Fluent Icons 的原生语义。
+- 完整轴、网格、原生 API、RTL、工具和跨平台映射见 [31-cross-platform-interface-icons.md](31-cross-platform-interface-icons.md)。Launcher/Play App Icon 是另一条资产链，见 [32-cross-platform-app-icons.md](32-cross-platform-app-icons.md)。
 
 ## 跨平台边界
 

@@ -159,6 +159,7 @@ Do not describe `UITabBar`, `UISegmentedControl`, or `UIMenu` implementations as
 - Use optically balanced, centered artwork that survives rounded-rectangle, square, and circular masks.
 - Prefer simplified filled shapes and controlled translucency over thin outlines and complex detail.
 - On Apple platforms, preview light, dark, clear, and tinted appearances and updated grids in Icon Composer or official templates.
+- Keep this Apple Liquid Glass treatment separate from Windows/Android App Icon exports and from in-app Logos; use the production and validation routes in [32-cross-platform-app-icons.md](32-cross-platform-app-icons.md).
 
 ## Landmarks sample extraction
 

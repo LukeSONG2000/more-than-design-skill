@@ -40,7 +40,8 @@
 | iOS / iPadOS / macOS 适配 | `13-platform-resources-technologies.md`, `03-patterns.md`, `04-accessibility.md` | HIG: Designing for iOS / iPadOS / macOS |
 | iPhone Duo / Apple 折叠屏适配 | `29-iphone-duo-adaptation.md`, `13-platform-resources-technologies.md`, `27-adaptive-platform-capabilities.md`, `28-semantic-components-testing.md` | HIG: Designing for iPhone Duo; six iPhone Duo Tech Talks; Layout, Split views, Toolbars, Multitasking, Games |
 | tvOS / watchOS / visionOS 启发 | `13-platform-resources-technologies.md`, `07-motion.md`, `09-motion-templates.md` | HIG: Designing for tvOS / watchOS / visionOS; Focus, Spatial design |
-| 图标 / symbol / 空状态 | `01-tokens.md`, `02-components.md` | HIG: Icons, SF Symbols; SF Symbols app/resources |
+| 界面图标 / SF Symbols | `31-cross-platform-interface-icons.md`, `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | HIG: SF Symbols; SF Symbols App; UIKit symbol image guidance |
+| App Icon / Icon Composer | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` | HIG: App icons; Icon Composer; Xcode app icon guidance |
 | 文案 / 产品命名 / 按钮文字 | `04-accessibility.md` | Apple Style Guide; HIG Writing |
 | Apple Pay / Sign in / Wallet / Health 等技术品牌 | `13-platform-resources-technologies.md`, `02-components.md`, `03-patterns.md` | Apple Design Resources: Technologies and brand templates |
 
@@ -66,14 +67,14 @@
 |---|---|---|
 | Accessibility | `04-accessibility.md` | contrast, focus, keyboard, screen reader, reduced motion, reduced transparency |
 | Inclusion | `04-accessibility.md` | 文案避免排他，状态不只靠颜色表达 |
-| App icons | `01-tokens.md`, `02-components.md` | icon radius、光影和品牌识别不要复制 Apple 图标 |
+| App icons | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` | 分层未遮罩源图、系统效果、外观变体、Icon Composer 和最终包验收 |
 | Color | `01-tokens.md` | semantic color, dark mode, contrast, blue for action only |
 | Layout | `03-patterns.md` | safe area, readable width, adaptive grids, generous whitespace |
 | Materials | `01-tokens.md`, `09-motion-templates.md` | glass/translucency 表达层级，不能牺牲可读性 |
 | Motion | `07-motion.md`, `09-motion-templates.md` | purpose, continuity, optional motion, no decorative overload |
 | Typography | `01-tokens.md`, `06-fonts.md` | optical hierarchy, SF/PingFang fallback, dynamic type-inspired scaling |
 | Writing | `04-accessibility.md` | concise labels, action-first buttons, user-centered copy |
-| Icons / SF Symbols | `01-tokens.md`, `02-components.md` | symbol scale, stroke weight, filled/outlined consistency |
+| Icons / SF Symbols | `31-cross-platform-interface-icons.md`, `11-hig-foundations-patterns.md` | rendering mode、weight、scale、variant、availability、RTL 和授权边界 |
 
 ### 3.3 Patterns
 
@@ -128,7 +129,8 @@ Use Apple Design Resources when the user asks for fidelity, platform-specific me
 | visionOS UI Kits | depth, scale, glass, spatial surfaces |
 | Product Bezels | screenshots and marketing mocks; respect usage terms |
 | Fonts | SF Pro, SF Compact, SF Mono, New York; do not redistribute Apple fonts without permission |
-| SF Symbols | symbol naming/weight/scale/reference; implement with licensed alternatives on Web if needed |
+| SF Symbols | symbol naming、weight、scale、rendering、variant、availability 和自定义 Symbol；跨平台路由见 `31-cross-platform-interface-icons.md` |
+| Icon Composer | Apple 分层 App Icon、平台构图和 Default/Dark/Clear/Tinted 预览；完整生产与跨平台派生见 `32-cross-platform-app-icons.md` |
 | Technology templates | Apple Pay, Wallet, Sign in with Apple, Health, HomeKit, AirPlay, Siri/App Shortcuts, Live Activities |
 
 ## 5. Developer Documentation coverage
@@ -157,7 +159,8 @@ Before delivering an Apple-style frontend, check:
 - [ ] Are Liquid Glass effects used as hierarchy/material, not generic blur decoration?
 - [ ] Does reduced motion still preserve information and task flow?
 - [ ] Does reduced transparency / high contrast keep text readable?
-- [ ] Are icons/SF Symbols proportions and weights consistent?
+- [ ] Are SF Symbols rendering mode、weight、scale、variant 和最低系统 availability 正确，并提供可访问名称？
+- [ ] Is the App Icon sourced from layered, unmasked artwork and verified in Icon Composer/Xcode and final system surfaces rather than only as a flattened preview?
 - [ ] Does platform density match the target device and input mode?
 - [ ] Are official brand templates used for Apple Pay, Sign in with Apple, Wallet, Health, etc.?
 - [ ] Is any Apple asset, font, icon, product image, or screenshot used only within its allowed license/usage terms?
@@ -173,8 +176,10 @@ Before delivering an Apple-style frontend, check:
 - HIG Typography: https://developer.apple.com/design/human-interface-guidelines/typography
 - HIG Layout: https://developer.apple.com/design/human-interface-guidelines/layout
 - HIG SF Symbols: https://developer.apple.com/design/human-interface-guidelines/sf-symbols
+- HIG App icons: https://developer.apple.com/design/human-interface-guidelines/app-icons
 - Apple Design Resources: https://developer.apple.com/design/resources/
 - SF Symbols: https://developer.apple.com/sf-symbols/
+- Icon Composer: https://developer.apple.com/icon-composer/
 - Apple Fonts: https://developer.apple.com/fonts/
 - Apple Style Guide: https://support.apple.com/guide/applestyleguide/welcome/web
 - Liquid Glass overview: https://developer.apple.com/documentation/technologyoverviews/liquid-glass

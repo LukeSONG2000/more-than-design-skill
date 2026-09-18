@@ -30,7 +30,16 @@ iPhone Duo 的双显示、折叠姿态、Reserved Region、Arrangement View、�
 
 Android 折叠屏的窗口容量、`FoldingFeature`、tabletop/book posture、canonical panes、adaptive navigation、显示模式和质量分级见 [references/30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md)，其中包含与 Apple Duo 的共享设计语义和不可一对一映射项。
 
+跨平台界面图标按语义分别落到 SF Symbols、Material Symbols 和 Segoe Fluent Icons，见 [references/31-cross-platform-interface-icons.md](references/31-cross-platform-interface-icons.md)。跨平台 App Icon 的品牌母版、平台派生、商店资产、工具链与最终包验收见 [references/32-cross-platform-app-icons.md](references/32-cross-platform-app-icons.md)。
+
 ## 内容地图
+
+### 跨平台图标系统
+
+| 文件 | 内容 |
+|---|---|
+| [31-cross-platform-interface-icons.md](references/31-cross-platform-interface-icons.md) | Apple、Google/Material、Windows 原生界面图标库、API、状态与语义对齐 |
+| [32-cross-platform-app-icons.md](references/32-cross-platform-app-icons.md) | Apple Icon Composer、Windows App Icon、Android Adaptive/Play Icon 的设计、适配、工具与验收 |
 
 ### Material & Google Design
 

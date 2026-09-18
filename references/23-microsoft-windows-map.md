@@ -88,8 +88,8 @@ Windows 桌面应用默认使用 Windows Design + WinUI/Windows App SDK。Fluent
 | 页面 | 官方链接 | 调用时机 |
 |---|---|---|
 | Iconography | [Icons in Windows apps](https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/icons) | Windows 图标选择、IconElement/IconSource 和使用总览 |
-| Segoe Fluent Icons | [Segoe Fluent Icons font](https://learn.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) | 原生 Windows glyph 名称与代码点 |
-| App icons | [App icons](https://learn.microsoft.com/en-us/windows/apps/design/style/app-icons-and-logos) | 包、Store 和系统呈现资产 |
+| Segoe Fluent Icons | [Segoe Fluent Icons font](https://learn.microsoft.com/en-us/windows/apps/design/iconography/segoe-fluent-icons-font) | 原生 Windows glyph、推荐字号、mirroring 和 PUA 边界；跨平台映射见 `31-cross-platform-interface-icons.md` |
+| App icons | [App icons](https://learn.microsoft.com/en-us/windows/apps/design/iconography/app-icons) | 包、Store 和系统呈现资产；设计、构建与最终槽位见 `32-cross-platform-app-icons.md` |
 | Writing style | [Writing style](https://learn.microsoft.com/en-us/windows/apps/design/style/writing-style) | Windows UI 文案、语气和大小写 |
 | App help | [Guidelines for app help](https://learn.microsoft.com/en-us/windows/apps/design/in-app-help/guidelines-for-app-help) | 可发现帮助、内联说明和外部支持 |
 | Instructional UI | [Instructional UI](https://learn.microsoft.com/en-us/windows/apps/design/in-app-help/instructional-ui) | 首次提示、teaching tip 和引导边界 |
@@ -175,5 +175,7 @@ Windows 桌面新项目通常优先 WinUI 3；技术选择仍需结合部署、�
 | 标题栏定制 | [Title bar design](https://learn.microsoft.com/en-us/windows/apps/design/basics/titlebar-design) | [WinUI title bar](https://learn.microsoft.com/en-us/windows/apps/develop/title-bar) |
 | Mica/Acrylic | [Windows materials](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/materials) | [Fluent material](https://fluent2.microsoft.design/material/) |
 | Web 企业工作台 | [Fluent layout](https://fluent2.microsoft.design/layout/) | [Fluent React components](https://fluent2.microsoft.design/components/web/react) |
+| 界面图标 | [31-cross-platform-interface-icons.md](31-cross-platform-interface-icons.md) | [Icons in Windows apps](https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/icons)、[WinUI Gallery](https://github.com/microsoft/WinUI-Gallery) |
+| App Icon / Shell 资产 | [32-cross-platform-app-icons.md](32-cross-platform-app-icons.md) | [App icon design](https://learn.microsoft.com/en-us/windows/apps/design/iconography/app-icon-design)、[construction](https://learn.microsoft.com/en-us/windows/apps/design/iconography/app-icon-construction) |
 | 无障碍验收 | [Accessibility overview](https://learn.microsoft.com/en-us/windows/apps/design/accessibility/accessibility-overview) | [Checklist](https://learn.microsoft.com/en-us/windows/apps/design/accessibility/accessibility-checklist) |
 | 动效 | [Windows motion](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/motion) | [Fluent motion](https://fluent2.microsoft.design/motion/) 与 [25-microsoft-motion.md](25-microsoft-motion.md) |

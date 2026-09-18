@@ -9,7 +9,8 @@ This file converts Apple HIG Foundations and Patterns into frontend decisions. U
 | Visual tokens | Color, Dark Mode, Materials, Typography, Layout | `01-tokens.md`, `03-patterns.md`, `05-tailwind-config.md` |
 | Accessibility | Accessibility, Inclusion | `04-accessibility.md` |
 | Copy and labels | Writing, Apple Style Guide | `04-accessibility.md`, product copy rules in this file |
-| Icons | Icons, SF Symbols, App icons | `01-tokens.md`, `02-components.md`, `13-platform-resources-technologies.md` |
+| Interface icons | Icons, SF Symbols | `31-cross-platform-interface-icons.md`, `13-platform-resources-technologies.md` |
+| App icons | App icons, Icon Composer | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` |
 | Motion | Motion, Loading, Materials | `07-motion.md`, `09-motion-templates.md` |
 
 ## 2. Foundation extraction rules
@@ -51,10 +52,20 @@ This file converts Apple HIG Foundations and Patterns into frontend decisions. U
 
 ### Icons and SF Symbols
 
-- Pair icon weight with adjacent text weight.
-- Filled symbols usually indicate selected/emphasized state; do not mix filled/outlined randomly.
+- Pair symbol weight and baseline with adjacent text; use scale for relative emphasis instead of arbitrary geometric scaling.
+- Select Monochrome, Hierarchical, Palette, or Multicolor by information hierarchy and verify every background/size context.
+- Filled symbols usually indicate selected/emphasized state; slash indicates unavailable/disabled semantics. Let standard controls choose variants where possible.
+- Check symbol and feature availability against the deployment target and provide a semantic fallback for older systems.
 - Functional icons need accessible names; decorative icons should be hidden from assistive tech.
-- On non-Apple Web, use licensed fallback icons instead of bundling restricted Apple symbols.
+- SF Symbols are Apple-only and can’t be used as App Icons, Logos or trademarks. On other platforms resolve the same semantic token to the native library.
+- Full native API, custom Symbol, RTL and cross-platform mapping guidance is in [31-cross-platform-interface-icons.md](31-cross-platform-interface-icons.md).
+
+### App icons
+
+- Use layered, unmasked artwork and let the system apply final shape and dynamic effects.
+- Keep the core mark stable across Default, Dark, Clear and Tinted appearances; preview in Icon Composer, Simulator and devices.
+- Do not treat a flattened Icon Composer preview as an in-app Logo or another platform’s source asset.
+- Full Apple/Windows/Android production and package validation is in [32-cross-platform-app-icons.md](32-cross-platform-app-icons.md).
 
 ## 3. Pattern extraction rules
 

@@ -119,10 +119,11 @@ Windows 原生应响应用户的 light/dark、强调色与高对比度偏好，�
 
 ### Iconography
 
-- Windows 原生使用 [Segoe Fluent Icons](https://learn.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) 或 WinUI 自带 Symbol/IconSource，保持光学尺寸和平台语义。
+- Windows 原生使用 [Segoe Fluent Icons](https://learn.microsoft.com/en-us/windows/apps/design/iconography/segoe-fluent-icons-font) 或 WinUI `SymbolIcon`、`FontIcon`、`IconSource`，保持推荐字号、光学尺寸和平台语义。
 - Web 使用 [Fluent iconography](https://fluent2.microsoft.design/iconography/) 与官方 Fluent icons 包。
 - 图标按钮提供 accessible name；不熟悉的图标配 tooltip 或文本。
 - 不把 Segoe Fluent Icons 复制到 Android/iOS 覆盖 Material Symbols/SF Symbols，除非 Microsoft 品牌产品明确要求。
+- Segoe PUA 代码点不是跨平台协议；完整类型选择、mirroring、AnimatedIcon 和语义映射见 [31-cross-platform-interface-icons.md](31-cross-platform-interface-icons.md)。Windows Shell/App Icon 另见 [32-cross-platform-app-icons.md](32-cross-platform-app-icons.md)。
 
 ## 布局与命令
 
@@ -223,4 +224,4 @@ Fluent React v9 入口见 [Web React](https://fluent2.microsoft.design/component
 | Mica/Acrylic/Smoke、caption buttons、UI Automation | Windows-only | 使用 WinUI/Windows API，不在 Web/Android/Apple 声称等价；来源 [Windows materials](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/materials) |
 | Fluent React/Web Components | Web/Microsoft products | 适合企业 Web 和 Microsoft 生态；不是 Windows 原生控件；来源 [Fluent React](https://fluent2.microsoft.design/components/web/react) |
 | Fluent iOS/Android libraries | Microsoft product-specific | 只有项目明确需要 Microsoft 家族一致性时覆盖默认平台路由；来源 [Fluent develop](https://fluent2.microsoft.design/get-started/develop) |
-| Segoe UI Variable/Segoe Fluent Icons | Windows-first | 非 Windows 提供字体/图标 fallback；来源 [Typography](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/typography) 与 [Icon font](https://learn.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font) |
+| Segoe UI Variable/Segoe Fluent Icons | Windows-first | 非 Windows 提供字体/图标 fallback；来源 [Typography](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/typography) 与 [Icon font](https://learn.microsoft.com/en-us/windows/apps/design/iconography/segoe-fluent-icons-font) |
