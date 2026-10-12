@@ -124,7 +124,7 @@ Font policy:
 | Apple Pay | Apple-only / brand-gated | Fast, trusted checkout with clear amount/merchant | Neutral payment button, payment-method selector |
 | Sign in with Apple | Apple-only / brand-gated | Privacy-preserving sign-in and clear account timing | Neutral SSO/email auth with privacy copy |
 | Wallet | Apple-only / analogous pass fallback | Add/save pass with clear confirmation | Download pass/PDF/QR/export flow |
-| Live Activities | Apple-only / concept transferable | Glanceable ongoing state | Status chip, toast, persistent task bar |
+| Live Activities | Apple-only / concept transferable | 有起止、时效和结束摘要的持续状态；详见 `33-apple-live-activities.md` | 持续/进度通知或 App 内任务状态区；一次性 toast 不足以承载持续跟踪 |
 | Widgets | Concept transferable | One focused job and full-detail destination | Dashboard card, home-screen-like summary |
 | App Clips | Apple-only / concept transferable | Lightweight task before full app/account | Guest mode, preview flow, demo task |
 | AirPlay | Apple-only / analogous casting fallback | Target selection and connection state | Generic cast/device picker |
@@ -141,6 +141,8 @@ Font policy:
 | Machine learning | Transferable | Personalization clarity and reset/correction | Recommendation/personalization controls |
 | Augmented reality | Scenario-specific | Placement feedback, safety boundaries, reset | AR-capable experience only; otherwise static preview |
 | Complications / watch faces | Apple-only / micro-status inspiration | Glanceable status in tiny surfaces | Small dashboard tile/status chip |
+
+Live Activities 的锁屏/Dynamic Island、StandBy、Mac 菜单栏、Watch Smart Stack 与 CarPlay 是不同呈现环境；四种基础布局、原生交互、stale 状态和结束策略统一从 [33-apple-live-activities.md](33-apple-live-activities.md) 查阅。不要从应用内玻璃控件或 Web morph 示例推断其系统材质和展开时长。
 
 ## 7. Sensitive feature rules
 

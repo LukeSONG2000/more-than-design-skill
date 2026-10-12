@@ -42,6 +42,7 @@
 | tvOS / watchOS / visionOS 启发 | `13-platform-resources-technologies.md`, `07-motion.md`, `09-motion-templates.md` | HIG: Designing for tvOS / watchOS / visionOS; Focus, Spatial design |
 | 界面图标 / SF Symbols | `31-cross-platform-interface-icons.md`, `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | HIG: SF Symbols; SF Symbols App; UIKit symbol image guidance |
 | App Icon / Icon Composer | `32-cross-platform-app-icons.md`, `14-liquid-glass-adoption.md` | HIG: App icons; Icon Composer; Xcode app icon guidance |
+| 实时活动 / Live Activities / Dynamic Island | `33-apple-live-activities.md` | HIG: Live Activities; ActivityKit; WidgetKit custom views, interactivity, animation and deep linking |
 | 文案 / 产品命名 / 按钮文字 | `04-accessibility.md` | Apple Style Guide; HIG Writing |
 | Apple Pay / Sign in / Wallet / Health 等技术品牌 | `13-platform-resources-technologies.md`, `02-components.md`, `03-patterns.md` | Apple Design Resources: Technologies and brand templates |
 
@@ -85,7 +86,7 @@
 | Loading | skeleton, determinate progress, cancellable long task, content-first reveal |
 | Onboarding | short staged reveal, permission timing, skip path |
 | Settings | grouped lists, disclosure rows, destructive action separation |
-| Notifications | toast/flag/live activity style state, no modal spam |
+| Notifications | toast/flag、必要提醒，避免重复提醒；Live Activities 是独立的持续活动体验，见 `33-apple-live-activities.md` |
 | Privacy | just-in-time prompts, explicit data purpose, reversible choices |
 | Collaboration / sharing | contextual share controls, activity state, permissions clarity |
 | Drag and drop | lifted preview, target affordance, drop confirmation |
@@ -101,6 +102,7 @@
 | Toolbars, tab bars, sidebars | `02-components.md`, `03-patterns.md` | toolbar glass drift, segmented pill, source transition |
 | Sheets, popovers, alerts | `02-components.md` | edge sheet, anchored popover, alert dissolve |
 | Progress indicators | `02-components.md`, `07-motion.md` | progress morph, skeleton dissolve |
+| Live Activities / system experiences | `33-apple-live-activities.md` | 四种呈现与设备适配；系统外壳转场和内容更新动画分别核对 |
 | Lists, tables, outlines | `02-components.md`, `03-patterns.md` | FLIP reorder, grouped insertion, selection transition |
 | Cards, collections, grids | `02-components.md`, `03-patterns.md` | card lift, source-to-detail, focus parallax |
 
@@ -142,6 +144,7 @@ Developer docs are useful when a frontend needs to mimic native behavior without
 | SwiftUI `glassEffect` / `GlassEffectContainer` / `GlassEffectTransition` | glass elements can group, morph, and transition as a material system; see `14-liquid-glass-adoption.md` for Landmarks extraction and `16-liquid-glass-api-motion-color.md` for code recipes |
 | SwiftUI `navigationTransition` | navigation can preserve source/destination continuity |
 | SwiftUI matched geometry concepts | cards, thumbnails, and controls can animate across layout contexts |
+| ActivityKit / WidgetKit Live Activities | 生命周期、四种呈现、stale、交互、内容动画和补充尺寸家族见 `33-apple-live-activities.md`；平台 API 与可迁移持续任务语义分别处理 |
 | UIKit/AppKit presentation controllers | sheets, popovers, menus, and modals originate from context |
 | ScrollView / safe area APIs | scroll-linked chrome changes and safe-area-aware layout |
 | Focus engine / tvOS docs | focus movement should be spatially predictable |
@@ -161,6 +164,7 @@ Before delivering an Apple-style frontend, check:
 - [ ] Does reduced transparency / high contrast keep text readable?
 - [ ] Are SF Symbols rendering mode、weight、scale、variant 和最低系统 availability 正确，并提供可访问名称？
 - [ ] Is the App Icon sourced from layered, unmasked artwork and verified in Icon Composer/Xcode and final system surfaces rather than only as a flattened preview?
+- [ ] Do Live Activities cover all presentations, stale/final state, deep links, device-specific interactions, privacy and low-luminance behavior as routed in `33-apple-live-activities.md`?
 - [ ] Does platform density match the target device and input mode?
 - [ ] Are official brand templates used for Apple Pay, Sign in with Apple, Wallet, Health, etc.?
 - [ ] Is any Apple asset, font, icon, product image, or screenshot used only within its allowed license/usage terms?
@@ -177,6 +181,8 @@ Before delivering an Apple-style frontend, check:
 - HIG Layout: https://developer.apple.com/design/human-interface-guidelines/layout
 - HIG SF Symbols: https://developer.apple.com/design/human-interface-guidelines/sf-symbols
 - HIG App icons: https://developer.apple.com/design/human-interface-guidelines/app-icons
+- HIG Live Activities: https://developer.apple.com/cn/design/human-interface-guidelines/live-activities/
+- ActivityKit: https://developer.apple.com/documentation/activitykit
 - Apple Design Resources: https://developer.apple.com/design/resources/
 - SF Symbols: https://developer.apple.com/sf-symbols/
 - Icon Composer: https://developer.apple.com/icon-composer/

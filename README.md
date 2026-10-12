@@ -66,6 +66,7 @@ Android 折叠屏的窗口容量、`FoldingFeature`、tabletop/book posture、ca
 - [HIG Foundations / Patterns](references/11-hig-foundations-patterns.md)
 - [HIG Components / Inputs](references/12-hig-components-inputs.md)
 - [平台、资源、字体和技术品牌](references/13-platform-resources-technologies.md)
+- [Live Activities 实时活动](references/33-apple-live-activities.md)：四种呈现、跨设备布局、生命周期、APNs、交互、动效和尺寸验收。
 - [iPhone Duo 折叠屏适配](references/29-iphone-duo-adaptation.md)
 - [Liquid Glass adoption](references/14-liquid-glass-adoption.md)
 - [Liquid Glass controls](references/15-liquid-glass-controls.md)
@@ -98,7 +99,7 @@ git clone https://github.com/LukeSONG2000/more-than-design-skill.git \
 
 ## 验证状态
 
-- 新增平台资料中的官方链接已逐项访问验证。
+- 平台资料提供官方来源和核对日期；Live Activities 已于 2026-10-12 对照中英文 HIG 与必要的 ActivityKit/WidgetKit 文档补全。
 - `skill-home validate --strict` 通过。
 - `skill-home scan --strict` 通过。
 - Codex、Agents frontend-design 触发描述和 Claude 镜像保持同步。

@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.4.0
+version: 1.4.1
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.4.0
+  version: 1.4.1
   category: productivity
   tags:
     - frontend
@@ -59,6 +59,8 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 针对 iOS 26+ 与 Android OEM 碎片化场景，补充阅读 [26-cross-platform-baseline.md](references/26-cross-platform-baseline.md)、[27-adaptive-platform-capabilities.md](references/27-adaptive-platform-capabilities.md) 和 [28-semantic-components-testing.md](references/28-semantic-components-testing.md)。涉及 iPhone Duo 时必须再读 [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md)；涉及 Android 折叠屏时必须再读 [30-android-foldable-adaptation.md](references/30-android-foldable-adaptation.md)。
 
 涉及界面图标时读取 [31-cross-platform-interface-icons.md](references/31-cross-platform-interface-icons.md)，按语义分别解析为 SF Symbols、Material Symbols 或 Segoe Fluent Icons。涉及应用品牌图标时读取 [32-cross-platform-app-icons.md](references/32-cross-platform-app-icons.md)，不要把界面 Symbol、商店图标、平台实渲 App Icon 和应用内 Logo 混为同一资产。
+
+涉及实时活动、锁屏持续任务或 Dynamic Island 时读取 [33-apple-live-activities.md](references/33-apple-live-activities.md)，核对四种呈现、设备联动、数据时效、结束摘要、交互与动效的原生约束；其他平台复用持续任务语义。
 
 ## 调用流程
 
@@ -146,6 +148,7 @@ Web 没有单一默认体系。先服从现有产品、代码库和品牌，再�
 | [12-hig-components-inputs.md](references/12-hig-components-inputs.md) | HIG Components 与 Inputs |
 | [13-platform-resources-technologies.md](references/13-platform-resources-technologies.md) | Apple 平台差异、资源、字体、SF Symbols 和技术品牌 |
 | [29-iphone-duo-adaptation.md](references/29-iphone-duo-adaptation.md) | iPhone Duo 双显示、折叠姿态、Reserved Region、Arrangement View、竖向系统栏、场景、相机与测试 |
+| [33-apple-live-activities.md](references/33-apple-live-activities.md) | Live Activities 四种呈现、StandBy/Mac/Watch/CarPlay、生命周期、APNs、交互、独立动效、尺寸与跨平台语义 |
 
 ### Apple Liquid Glass 专项
 

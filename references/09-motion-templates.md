@@ -597,6 +597,8 @@ Rules:
 
 ### 10.1 Dynamic Island pill expand
 
+Scope: this is a Web status-pill reference, not an ActivityKit timing specification. Native Dynamic Island presentation is system-controlled; load [33-apple-live-activities.md](33-apple-live-activities.md) for Apple implementation and content-animation limits.
+
 Use for: compact task state, voice/upload/recording/sync status.
 
 Motion:
@@ -612,12 +614,14 @@ Rules:
 
 ### 10.2 Live activity morph
 
+Scope: this template describes a cross-platform in-app status view. Native Live Activities use ActivityKit/WidgetKit and system lifecycle/dismissal policy; see [33-apple-live-activities.md](33-apple-live-activities.md).
+
 Use for: timers, uploads, background jobs, status chips.
 
 Motion:
 - persistent capsule changes width/content gradually
 - progress or time moves continuously only when meaningful
-- completion compresses to success chip then dismisses
+- a custom in-app view may compress to a success chip and dismiss; an Apple Live Activity ends with final content and a platform dismissal policy
 
 Reduced motion:
 - static state updates with text.

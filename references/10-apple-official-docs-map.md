@@ -4,6 +4,8 @@ Crawled snapshot: 2026-09-18. Source scope: Apple Human Interface Guidelines, Ap
 
 This file is the routing map. It lists where Apple official material lives and which local reference to load before implementing a frontend. It intentionally stores titles, URLs, and frontend routing notes rather than long copied passages from Apple docs.
 
+Live Activities was separately rechecked on 2026-10-12 against the Chinese HIG and related ActivityKit/WidgetKit pages; its detailed extraction is `33-apple-live-activities.md`. The date above remains the broader map snapshot.
+
 ## 1. How Codex should use this map
 
 1. Identify the task class: visual system, motion, component, platform, input, technology brand, or resource/license.
@@ -33,6 +35,7 @@ This file is the routing map. It lists where Apple official material lives and w
 | Components and inputs | `12-hig-components-inputs.md` | `02-components.md`, `07-motion.md`, `15-liquid-glass-controls.md` | Buttons, sheets, menus, tables, forms, keyboard/pointer/touch, Liquid Glass controls |
 | Interface icons / SF Symbols | `31-cross-platform-interface-icons.md` | `11-hig-foundations-patterns.md`, `13-platform-resources-technologies.md` | Symbol selection, rendering mode, weight, scale, variants, effects, availability, RTL and cross-platform semantic mapping |
 | App Icon / Icon Composer | `32-cross-platform-app-icons.md` | `14-liquid-glass-adoption.md`, `13-platform-resources-technologies.md` | Layered Apple icon production, appearance variants, platform composition, package verification and cross-platform brand derivation |
+| Live Activities / ongoing task state | `33-apple-live-activities.md` | `13-platform-resources-technologies.md`, `28-semantic-components-testing.md` | Four presentations, StandBy, Mac/Watch/CarPlay, lifecycle, push, stale state, interactions, animation and platform boundaries |
 | Platform adaptation | `13-platform-resources-technologies.md` | `03-patterns.md`, `04-accessibility.md` | Apply platform references with transferability filter |
 | iPhone Duo / foldable adaptation | `29-iphone-duo-adaptation.md` | `13-platform-resources-technologies.md`, `27-adaptive-platform-capabilities.md`, `28-semantic-components-testing.md` | Dual displays, poses, reserved regions, arrangements, vertical bars, scenes, cameras, testing, cross-platform boundary |
 | Apple resources and brand technologies | `13-platform-resources-technologies.md` | `06-fonts.md`, `01-tokens.md` | Use Apple-only resources only when licensed/supported; provide fallback |
@@ -220,7 +223,7 @@ Liquid Glass has a standalone route because it crosses foundations, controls, mo
 | HomeKit | https://developer.apple.com/design/human-interface-guidelines/homekit | Apple-only / device-control model | `13-platform-resources-technologies.md` | Extract device state and safety confirmation; use neutral IoT UI |
 | iCloud | https://developer.apple.com/design/human-interface-guidelines/icloud | Apple ecosystem / sync model | `13-platform-resources-technologies.md` | Extract sync/offline/conflict handling; use neutral cloud-sync UI |
 | In-app purchase | https://developer.apple.com/design/human-interface-guidelines/in-app-purchase | Platform-specific commerce | `13-platform-resources-technologies.md` | Extract purchase clarity and recovery; use target-platform checkout |
-| Live Activities | https://developer.apple.com/design/human-interface-guidelines/live-activities | Apple-only / concept transferable | `09-motion-templates.md`, `13-platform-resources-technologies.md` | Extract glanceable ongoing state; do not clone iOS system surface |
+| Live Activities | https://developer.apple.com/cn/design/human-interface-guidelines/live-activities/ | Apple-only / concept transferable | `33-apple-live-activities.md`, `13-platform-resources-technologies.md` | Full HIG extraction, four presentations, companion devices, lifecycle, interactivity and versioned animation; share ongoing-state semantics across platforms |
 | Machine learning | https://developer.apple.com/design/human-interface-guidelines/machine-learning | Core transferable | `13-platform-resources-technologies.md` | Personalization transparency and correction |
 | Maps | https://developer.apple.com/design/human-interface-guidelines/maps | Provider-specific / transferable | `13-platform-resources-technologies.md` | Map controls and attribution |
 | Siri | https://developer.apple.com/design/human-interface-guidelines/siri | Apple-only / voice model | `13-platform-resources-technologies.md` | Extract action naming and confirmation; use neutral voice/command UI |

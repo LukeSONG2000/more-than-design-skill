@@ -14,6 +14,7 @@
 | `Glass` | 系统组件或受控 Liquid Glass | Material surface/elevation fallback | 层级、对比度、点击区域和状态一致 |
 | `InterfaceIcon` | SF Symbols | Material Symbols | 共享语义/标签/状态，字形、weight、fill 和动效服从平台；Windows 使用 Segoe Fluent Icons，详见 `31` |
 | `AppIcon` | Icon Composer/Xcode | Adaptive Icon + Play listing | 共享品牌识别，遮罩、图层、商店资产和最终系统表面分别验收；Windows 见 `32` |
+| `OngoingActivity` | ActivityKit/WidgetKit Live Activity | 按能力选择持续/进度通知或 App 内状态 | 活动身份、进度、时效、必要动作和详情路由一致；系统呈现与结束摘要见 `33` |
 
 ## 测试矩阵
 
@@ -45,6 +46,7 @@ iPhone Duo 项目额外覆盖：外屏/内屏、闭合/展开/书本式/桌面�
 - 对截图比较先固定窗口和字体设置；不要用单一 iOS 截图作为 Android 的像素基准。
 - 图标比较关注语义、视觉重量、baseline、RTL 和可访问名称，不要求 SF/Material/Segoe 轮廓相同。
 - App Icon 必须区分源资产、生成产物、配置引用、最终包和实机表面；仓库存在文件或构建通过不能替代最终槽位验收。
+- 持续活动区分普通更新与关键 alert、stale 与完成、结束与移除；Apple 锁屏/岛/配对设备的实际行为及其尺寸、背景、动画约束见 [33-apple-live-activities.md](33-apple-live-activities.md)。
 
 ## 交付记录模板
 
