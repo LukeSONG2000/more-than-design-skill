@@ -1,5 +1,5 @@
 interface:
   display_name: "More Than Design"
-  short_description: "Platform-aware design across Apple, Google, and Microsoft"
+  short_description: "按平台查阅 Apple、Android、Windows 与 Web 设计，分离样式和动效"
   brand_color: "#2563EB"
-  default_prompt: "Use $more-than-design-skill alongside $frontend-design to route the interface through the appropriate Apple, Google, Microsoft, or web guidance while keeping native behavior, visual style, and motion distinct."
+  default_prompt: "使用 $more-than-design-skill 配合 $frontend-design，只读取目标平台索引及任务相关的跨平台映射，分别查阅样式与动效，并区分 Apple 原生 HIG 和 Apple 风格 Web。"

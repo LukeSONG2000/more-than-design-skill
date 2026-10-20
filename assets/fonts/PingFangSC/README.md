@@ -2,6 +2,8 @@
 
 字体来源：[refinec/PingFangSC](https://github.com/refinec/PingFangSC)。
 
+按需使用与集成方式见[字体参考](../../../references/web/pingfang-fonts.md)。完整仓库保留本目录字体，轻量发布包排除字体二进制；这些资源不是 Android / Windows 的默认字体。
+
 本目录保留 More Than Design 使用频率最高的 4 个字重：
 
 | 字重 | 文件 | 用途 |
