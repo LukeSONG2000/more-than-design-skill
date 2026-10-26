@@ -130,7 +130,7 @@ python3 scripts/export_skill.py --output ../more-than-design-export
 ```
 
 - 平台资料提供官方来源和核对日期；Live Activities 已于 2026-10-12 对照中英文 HIG 与必要的 ActivityKit/WidgetKit 文档补全。
-- 当前结构整理仍使用版本 `1.4.1`，不表示已提交、发布或同步其他安装渠道。
+- `1.5.0` 包含多平台目录重组、iPhone Duo 指导更新，以及信息层级、语义重点色和直观交互规范。源码版本与注册中心发布状态分别核验；轻量包保留完整参考目录，不包含字体和展示图。
 - GitHub 完整仓库保留字体文件与许可证；轻量发布包排除字体二进制、展示图、Git 元数据和本地安装目录。轻量包的字体文档仍保留，使用字体时从完整仓库获取并核对授权。
 - 本地结构校验检查 Markdown 链接、锚点、裸文件引用、平台路由和孤立资料，不访问外网。依赖见 [scripts/requirements-validation.txt](scripts/requirements-validation.txt)，从仓库根目录运行以下命令。
 - 分发前另运行 `skill-home validate . --strict`、`skill-home scan . --strict` 并检查最终包清单；各安装渠道同步由维护者独立完成，不以源码通过校验替代同步验收。

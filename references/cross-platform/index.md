@@ -4,6 +4,7 @@
 
 | 任务 | 读取 | 实际范围 |
 |---|---|---|
+| 冗余说明、重点色、直观交互与管理台密度 | [信息层级](information-hierarchy.md) | 区分 Apple 官方依据与本 skill 跨平台推导 |
 | 选择设计体系、处理冲突 | [平台路由](platform-routing.md) | Android、Windows、Apple、Web |
 | 原生与共享层边界 | [平台基线](cross-platform-baseline.md) | 主要是 iOS 26+ 与 Android OEM，不代表完整 Windows 基线 |
 | 窗口、输入与能力降级 | [自适应能力](adaptive-platform-capabilities.md) | 主要是 iOS 与 Android；Windows 需另查其平台资料 |

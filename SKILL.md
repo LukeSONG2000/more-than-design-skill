@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.4.1
+version: 1.5.0
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.4.1
+  version: 1.5.0
   category: productivity
   tags:
     - frontend
@@ -50,6 +50,7 @@ Web 不固定套用一个体系。现有品牌、组件库和工作流优先；�
 
 ## 实施约束
 
+- 按[信息层级与直观交互](references/cross-platform/information-hierarchy.md)消除复述性说明、统一语义重点色，以布局和熟悉组件表达层级；保留必要标签、风险、数据摘要与无障碍信息，管理系统保留有效密度。
 - 将需求分为样式、组件、行为、动效、无障碍。样式数值不能代替交互行为；动效参数不能掩盖错误组件。分别查阅目标平台的样式与动效入口。
 - 原生优先标准组件与系统行为。Android 不复刻 iOS 控件，Windows 不套移动导航，Apple 不以 Web 毛玻璃模拟系统材质。
 - 共享业务语义，不共享平台 API、硬件输入或系统外观；跨平台近似效果明确提供中性 fallback。

@@ -1,11 +1,11 @@
 # iPhone Duo 折叠屏适配指南
 
-本文件整理 Apple Human Interface Guidelines 的 iPhone Duo 页面、关联 HIG 子页面，以及 Apple 的六个 iPhone Duo Tech Talk。用于设计、实现和验收 iPhone Duo 原生应用，也用于提取可迁移到其他折叠屏平台的布局原则。
+本文件整理 Apple Human Interface Guidelines 的 iPhone Duo 页面、关联 HIG 子页面、六个 iPhone Duo Tech Talk，以及官方准备流程、正式开发指南与 Apple DTS 问答。用于设计、实现和验收 iPhone Duo 原生应用，也用于提取可迁移到其他折叠屏平台的布局原则。
 
 ## 使用边界与版本状态
 
 - iPhone Duo 仍属于 iPhone，先遵守 iOS 的导航、触控、文字、无障碍和系统组件规范，再处理双显示与折叠姿态。
-- 本文快照日期为 2026-09-15。Apple 当前将 Xcode 27.1 标为 Beta，并说明完整的开发适配文章仍将于本月稍后提供。
+- 本次增量核验日期为 2026-10-21；正式开发指南已上线，替换 2026-09-15 快照中的待发布说明。既有 Tech Talk/API 细节未做全量重核。此日期不代表任何 Xcode/SDK 已正式发布，也不据此判断其 Beta 或正式版状态。
 - `ReservedRegion`、Arrangement View、竖向系统栏、Hinge、场景附件和 Duo 相机能力按 iOS 27.1 SDK 资料记录。发布前必须对照最终 SDK、availability 和最新文档复核。
 - 本文主要是 `layout`、`component behavior` 与 `platform capability` 指南，不是动画参数表。标准组件的布局和系统转场由系统负责；铰链数据只用于有意义的效果与交互。
 
@@ -13,7 +13,7 @@
 
 | 任务 | 先看 |
 |---|---|
-| 现有 iPhone App 适配 Duo | 基线、动态布局、标准容器、测试矩阵 |
+| 现有 iPhone App 适配 Duo | 官方三步、构建 SDK 边界、动态布局、标准容器、测试矩阵 |
 | 内容跨过铰链或摄像头 | Reserved regions |
 | 主从、上下或叠层内容 | Split views 与 Arrangement View |
 | 导航栏、工具栏、Tab Bar | 竖向系统栏 |
@@ -21,6 +21,33 @@
 | 姿态驱动效果 | Hinge：只做效果，不做主体布局 |
 | 相机 App | 双前摄与方向协调 |
 | Android/Web 折叠屏 | 跨平台翻译边界 |
+
+## 官方三步准备流程
+
+依据 [Prepare for iPhone Duo](https://developer.apple.com/iphone-duo/prepare/)，按以下顺序推进：
+
+1. **使用 App Resizability skill 协助准备。** 在 Xcode 中请求 `get my app ready for iPhone Duo`。
+   使用其他 agent 时，官方提供 `xcrun agent skills export` 导出命令；本文仅记录命令，不执行。
+   导出位置和后续安装方式未经验证，不推断文件路径，也不提供未经核实的安装指令。
+   该 skill 只能发现多数问题，不能替代人工审查和测试。
+2. **排查动态布局假设。** 根据当前 view/window 的可用空间、traits 和环境重新布局；具体检查项见 3.1。
+   不以设备类别或预设尺寸替代窗口容量判断，并检查图片、视频的重要内容是否被 `aspectFill` 裁掉。
+3. **逐级测试。** 在 Device Hub 的 iOS resizable simulator 中检查可调整尺寸布局。
+   使用 macOS 27 的 iPhone Mirroring 检查极端尺寸；使用 Xcode 27.1 的 Duo simulator 验证完整原生体验。
+   通用尺寸测试不能替代 Duo 的系统栏、折叠区域、场景与相机专项验收。
+
+### 构建 SDK 与显示行为
+
+下表按**构建 App 所用的 SDK**区分，不是设备运行系统版本，也不是最低部署版本：
+
+| 构建 SDK | Duo 显示行为与适配要求 |
+|---|---|
+| 26 及更早 | 内容存在留白，不能据此认定已适配全显示 |
+| 27 | 填充大部分内屏，但仍避开状态栏区域 |
+| 27.1 及更新 | 使用全显示和竖向栏，App 必须完成相应布局适配 |
+
+全显示不等于交互前景可以忽略 safe area 或 reserved regions。
+记录实际构建 SDK 与测试环境，分别检查新能力 availability 和旧系统 fallback；不从上表推断 SDK 发布渠道。
 
 ## 1. 设备模型
 
@@ -59,8 +86,17 @@ available size / size class
 
 - 用 SwiftUI Environment 或 UIKit trait collection 读取 size class。
 - 不以 interface orientation 决定信息结构；内屏不保证遵循 App 声明的 supported interface orientations。
-- 不使用 `UIScreen.main` 推断当前显示。双显示环境中它有歧义；使用 scene bounds、trait、SwiftUI environment 或 `windowScene.screen`。
+- 不使用 `UIScreen.main` 推断当前显示。双显示环境中它有歧义；布局尺寸使用当前 `view.bounds` / `window.bounds`，显示相关能力按需从 `windowScene.screen` 获取。
 - 需要贴合屏幕圆角时使用系统 Concentricity 能力，例如 `ConcentricRectangle` 或 `UICornerConfiguration`，不要手填某款设备的圆角值。
+
+官方准备流程的代码排查清单：
+
+- 把用于布局的 `UIScreen.main.bounds` 改为承载内容的 `view.bounds` / `window.bounds`，不要缓存启动时的尺寸。
+- 创建窗口使用 `UIWindow(windowScene:)`，明确关联当前 scene。
+- `displayScale` 从当前 traits 或 SwiftUI environment 获取，不假定主屏 scale 等于当前窗口 scale。
+- UIKit 在 `layoutSubviews` / `viewDidLayoutSubviews` 中随尺寸变化重新计算布局，不只在初始化时计算。
+- 不以 orientation、phone/pad idiom、`regular = iPad` 或固定设备大小决定信息结构；regular 只描述空间条件。
+- 检查 `aspectFill` 下图片、视频和相机预览的重要主体、文字及操作提示是否被裁切。
 
 ### 3.2 内容连续性
 
@@ -113,8 +149,10 @@ Arrangement View 是 iOS 27.1 的双视图布局容器，包含 primary 与 seco
 规则：
 
 - SwiftUI 使用 `ArrangementView`；UIKit 使用 `UIArrangementViewController`。
-- 把 `NavigationStack`、`NavigationSplitView` 或 `TabView` 放在 Arrangement View 外部。
-- 不要把 Arrangement View 放进 `List` 或 `ScrollView`。
+- HIG 示例明确列出 `NavigationSplitView` 或 `TabView` 作为 Arrangement View 的外围容器；但正式开发指南要求避免将 `ArrangementView` 嵌入 `NavigationSplitView`、`List` 或 `ScrollView`。
+- **官方建议存在冲突：** `NavigationSplitView` 外围组合同时被 HIG 列举、被开发指南建议避免，因此不将其作为默认推荐。
+- “Avoid” 是使用建议，不等于 API 禁止或编译不可用。不要仅为消除文档冲突自动改动现有视图层级。
+- 具体组合须验证窄窗、宽窗、折叠和竖向栏下的布局、导航与操作可达性，再决定保留或调整；记录所用 SDK 和验证结果。这是本 skill 保守维护策略，不是 Apple 已澄清的统一结论。
 - 如果现有布局不是明确的双视图关系，不要为了使用新 API 强行拆成 primary/secondary。
 
 ## 6. 竖向系统栏
@@ -125,6 +163,8 @@ Arrangement View 是 iOS 27.1 的双视图布局容器，包含 primary 与 seco
 
 - SwiftUI 将 `.toolbar` 与 `NavigationStack` 或 `NavigationSplitView` 配合。
 - UIKit 优先 `UINavigationController` 与 `UITabBarController`。孤立的自定义 `UIToolbar`、`UINavigationBar` 或 `UITabBar` 内容不会自动获得完整的容器级竖向布局判断。
+- Apple DTS 明确：单独使用 `UITabBar` 不会自动竖向适配；标准路径是 SwiftUI `TabView` 或 UIKit `UITabBarController`。
+- 自定义栏可通过 `toolbarVerticalEdge` / `verticalBarEdge` 与 `ReservedRegion` 获取相关布局信息，但必须自行完成布局；这些信息不提供自动容器适配。
 - 在 Split View 中，通常只有 detail 列参与共享侧边栏区域；inspector 不获得独立系统栏。
 - 侧边位置与硬件对齐，在 RTL 中不会镜像到另一侧；文案和内容方向仍按本地化规则处理。
 
@@ -162,6 +202,13 @@ Arrangement View 是 iOS 27.1 的双视图布局容器，包含 primary 与 seco
 - iPhone Duo 支持多个 UI scene 实例；外屏不能总是创建新窗口。场景激活请求必须处理失败，优先使用系统提供、不可用时会隐藏的窗口创建操作。
 - Scene accessory 由系统动态决定是否可用。它只能补充主界面，核心任务在没有 accessory 时仍必须完整可用。
 - `CameraCaptureAccessory` 可在内屏全屏相机活动时，把补充界面放到外屏；在同一个相机 view 上注册并监听 availability。
+
+### DTS：生命周期与状态作用域
+
+- 开合表现为 traits 和尺寸变化，不应假定会重建 scene，也不要在每次折叠时执行 scene 恢复流程。
+- 只有真实发生 scene disconnect 后，才走相应的场景恢复路径；正常尺寸变化应在现有 scene 中保留上下文。
+- `UserDefaults` / `AppStorage` 是应用级共享状态，不是每个窗口独立的存储。
+- 每窗选择、导航和草稿需要明确的 scene 作用域或标识；不能依靠共享偏好存储天然隔离窗口。
 
 这些能力属于 Apple/Duo 专项。一般跨平台产品可以迁移“多窗口状态连续”和“辅助显示不可作为唯一入口”原则，但不能复制其 API 或系统窗口行为。
 
@@ -207,6 +254,12 @@ SwiftUI 的 hinge change 能力和 UIKit 的 `UIHingeInteraction` 可以报告�
 
 不要在 Android 或 Web 上画一条中缝、复制 Duo 竖向栏，或声称自定义折叠动画等同系统行为。跨平台共享的是任务语义、容量判断、避让原则和测试方法。
 
+### Web 实验能力边界
+
+- Apple DTS 说明：Web Viewport Segments / Device Posture 在 iOS 27.1 的 Safari 中属于需要手动开启 feature flags 的实验能力。
+- 不将其视为默认开启、可直接用于生产的能力；采用能力检测，并保留普通连续视口下的完整任务路径。
+- 验收记录 Safari/系统版本与实验开关状态，不能把开启 flags 的测试结果当作默认生产可用性证据。
+
 完整的 Android 官方路线、差异和共享能力合同见 [../android/android-foldable-adaptation.md](../android/android-foldable-adaptation.md)。
 
 ## 12. 验收矩阵
@@ -229,6 +282,9 @@ SwiftUI 的 hinge change 能力和 UIKit 的 `UIHingeInteraction` 可以报告�
 
 ### HIG 与开发入口
 
+- [Prepare for iPhone Duo：官方三步](https://developer.apple.com/iphone-duo/prepare/)
+- [Preparing your app for iPhone Duo：正式开发指南](https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo)
+- [Apple DTS：iPhone Duo 问答](https://developer.apple.com/forums/thread/847644)
 - [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
 - [Get ready for iPhone Duo](https://developer.apple.com/iphone-duo/)
 - [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
@@ -239,6 +295,12 @@ SwiftUI 的 hinge change 能力和 UIKit 的 `UIHingeInteraction` 可以报告�
 - [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
 - [SwiftUI `ToolbarOverflowMenu`](https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu)
 - [SwiftUI `sceneAccessory(content:)`](https://developer.apple.com/documentation/swiftui/view/sceneaccessory%28content%3A%29)
+
+### 相机与设计资源
+
+- [Choosing a camera by the direction it faces](https://developer.apple.com/documentation/avkit/choosing-a-camera-by-the-direction-it-faces)
+- [Registering a camera capture accessory on iPhone Duo](https://developer.apple.com/documentation/avfoundation/registering-a-camera-capture-accessory-on-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)：Figma、Sketch 资源入口；未检查下载包，不据此声明包内包含哪些 Duo 组件或模板。
 
 ### Apple Tech Talks
 

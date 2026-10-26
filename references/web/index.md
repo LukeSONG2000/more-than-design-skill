@@ -6,6 +6,7 @@ Web 没有统一的 Apple 默认规范。先服从现有品牌、组件库、技
 
 | 任务 | 读取 | 范围 |
 |---|---|---|
+| 信息层级、语义重点色与有效密度 | [信息层级与直观交互](../cross-platform/information-hierarchy.md) | 跨平台推导；保留必要说明、数据摘要和无障碍信息 |
 | 设计方向 | [设计哲学](apple-style-philosophy.md) | Apple 风格 Web |
 | 样式、排版和布局数值 | [样式 Token](apple-style-tokens.md) | Apple.com 提取与 Web 实现参考 |
 | 组件 | [组件模式](apple-style-components.md) | Apple 风格 Web |
