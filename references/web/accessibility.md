@@ -338,17 +338,19 @@ function trapFocus(element) {
 
 #### 导航栏
 
+普通站点导航保留链接与列表语义；不要仅为外观添加 `menubar/menuitem`。应用式菜单需要另行实现相应键盘与焦点模式。
+
 ```html
 <nav aria-label="全局导航">
-  <ul role="menubar">
-    <li role="none">
-      <a role="menuitem" href="/" aria-current="page">商店</a>
+  <ul>
+    <li>
+      <a href="/" aria-current="page">商店</a>
     </li>
-    <li role="none">
-      <a role="menuitem" href="/mac">Mac</a>
+    <li>
+      <a href="/mac">Mac</a>
     </li>
-    <li role="none">
-      <a role="menuitem" href="/ipad">iPad</a>
+    <li>
+      <a href="/ipad">iPad</a>
     </li>
   </ul>
 </nav>

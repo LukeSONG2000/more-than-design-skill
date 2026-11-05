@@ -77,6 +77,10 @@ Android 折叠屏的窗口容量、`FoldingFeature`、tabletop/book posture、ca
 - [Liquid Glass API、Motion 与 Color](references/apple/liquid-glass/liquid-glass-api-motion-color.md)
 - [Liquid Glass 官方深度链接地图](references/apple/liquid-glass/liquid-glass-deep-link-map.md)
 
+### Web 场景化决策
+
+Web 从用户要完成的事出发，不要求先说组件术语。[场景决策](references/web/scenario-routing.md)、[组件地图](references/web/component-atlas.md)、[交互模式](references/web/interaction-patterns.md)、[技术选型](references/web/stack-selection.md)与[场景验收](references/web/scenario-evaluation.md)组成独立参考层。先确定风险、上下文和操作行为，再选视觉体系。当前为本地未发布扩展；不代表所有组件已实现或测试完毕，不包含原生客户端对齐，后续对齐需单独授权。
+
 ### Apple.com 实现参考
 
 [Web 索引](references/web/index.md)保留原有 Apple 风格哲学、Token、Web 组件、布局、Tailwind 和独立动画资料，不作为 Apple 原生、Android 或 Windows 的默认数值。Web 无障碍可用于一般 Web 项目；PingFang 字体是按需特殊资源。
@@ -121,6 +125,8 @@ done
 仓库保留 [refinec/PingFangSC](https://github.com/refinec/PingFangSC) 的 PingFang SC fallback：非 Apple Web 使用 `woff2`，客户端可使用 `ttf`，Apple 设备优先系统字体。详细方案见 [references/web/pingfang-fonts.md](references/web/pingfang-fonts.md)。字体资源只服务 Apple 风格或明确需要统一中文观感的项目，不作为 Android/Windows 默认字体。
 
 ## 分发与验证
+
+- 已新增[每日更新检查](references/update-checks.md)：首次加载时检查，按本地自然日与渠道缓存到用户状态目录，跨对话共享；只提示、不自动更新。Git 直装检查官方 main 提交，无 Git 包通过 Skill Home CLI 检查发布版本。没有使用 skill 的日子不运行，旧安装须先升级才能获得本能力。
 
 - 本次集成验证发现 `skill-home v0.2.20 export -p claude` 仅输出 SKILL/scripts，遗漏本结构的 42 篇嵌套 references；该版本不能直接用于本仓的完整导出。这不影响标准 clone／symlink 安装，也不表示其他 CLI 版本行为相同。
 - 需要独立导出目录时，使用本仓递归导出脚本（Python 标准库，无需修改全局 CLI）。`--output` 必填，须为源目录之外的新目录；已存在的目标会被拒绝，不覆盖文件。默认 light，排除字体目录与展示图；明确需要完整字体资源时添加 `--include-fonts`。导出不代表安装、上传或发布。
