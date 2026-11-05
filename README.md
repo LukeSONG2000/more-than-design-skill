@@ -79,7 +79,7 @@ Android 折叠屏的窗口容量、`FoldingFeature`、tabletop/book posture、ca
 
 ### Web 场景化决策
 
-Web 从用户要完成的事出发，不要求先说组件术语。[场景决策](references/web/scenario-routing.md)、[组件地图](references/web/component-atlas.md)、[交互模式](references/web/interaction-patterns.md)、[技术选型](references/web/stack-selection.md)与[场景验收](references/web/scenario-evaluation.md)组成独立参考层。先确定风险、上下文和操作行为，再选视觉体系。当前为本地未发布扩展；不代表所有组件已实现或测试完毕，不包含原生客户端对齐，后续对齐需单独授权。
+Web 从用户要完成的事出发，不要求先说组件术语。[场景决策](references/web/scenario-routing.md)、[组件地图](references/web/component-atlas.md)、[交互模式](references/web/interaction-patterns.md)、[技术选型](references/web/stack-selection.md)与[场景验收](references/web/scenario-evaluation.md)组成独立参考层。先确定风险、上下文和操作行为，再选视觉体系。此扩展纳入 1.6.0；不代表所有组件已实现或测试完毕，不包含原生客户端对齐，后续对齐需单独授权。
 
 ### Apple.com 实现参考
 
@@ -136,7 +136,7 @@ python3 scripts/export_skill.py --output ../more-than-design-export
 ```
 
 - 平台资料提供官方来源和核对日期；Live Activities 已于 2026-10-12 对照中英文 HIG 与必要的 ActivityKit/WidgetKit 文档补全。
-- `1.5.0` 包含多平台目录重组、iPhone Duo 指导更新，以及信息层级、语义重点色和直观交互规范。源码版本与注册中心发布状态分别核验；轻量包保留完整参考目录，不包含字体和展示图。
+- `1.6.0` 在既有规范上增加 Web 场景化组件决策、技术选型与每日持久化更新检查。源码版本与注册中心发布状态分别核验；轻量包保留完整参考目录，不包含字体和展示图。
 - GitHub 完整仓库保留字体文件与许可证；轻量发布包排除字体二进制、展示图、Git 元数据和本地安装目录。轻量包的字体文档仍保留，使用字体时从完整仓库获取并核对授权。
 - 本地结构校验检查 Markdown 链接、锚点、裸文件引用、平台路由和孤立资料，不访问外网。依赖见 [scripts/requirements-validation.txt](scripts/requirements-validation.txt)，从仓库根目录运行以下命令。
 - 分发前另运行 `skill-home validate . --strict`、`skill-home scan . --strict` 并检查最终包清单；各安装渠道同步由维护者独立完成，不以源码通过校验替代同步验收。
