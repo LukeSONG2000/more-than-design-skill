@@ -2,4 +2,4 @@ interface:
   display_name: "More Than Design"
   short_description: "按平台查阅 Apple、Android、Windows 与 Web 设计，分离样式和动效"
   brand_color: "#2563EB"
-  default_prompt: "使用 $more-than-design-skill 配合 $frontend-design，只读取目标平台索引及任务相关的跨平台映射，分别查阅样式与动效，并区分 Apple 原生 HIG 和 Apple 风格 Web。"
+  default_prompt: "使用 $more-than-design-skill 配合 $frontend-design，以 HIG 指导 Web 审美，按内容和操作需求确定留白与密度。局部修改直接实施，组件、场景和框架资料按需调用。用适用条件、推荐做法和预期效果说明指导，分别处理产品界面、展示构图、样式与动效。"

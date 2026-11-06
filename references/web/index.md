@@ -1,18 +1,18 @@
-# Web：按产品语境选择体系
+# Web：HIG 审美与按需工程参考
 
-Web 没有统一的 Apple 默认规范。先服从现有品牌、组件库、技术栈与工作流；未确定体系时读[平台路由](../cross-platform/platform-routing.md)。选用 Fluent 或 Material 时，分别到 [Windows](../windows/index.md) 或 [Android](../android/index.md) 中查 Web 范围，不照搬原生 API。
+本 skill 以 HIG 为 Web 的通用审美参考，落实到层级、排版、对齐、重点色和视觉反馈。留白、字号、密度和材质按内容与操作需求确定，并延续用户指定风格和已有品牌。框架、组件库和[平台路由](../cross-platform/platform-routing.md)提供工程参考；Fluent、Material 用于查阅行为与能力。
 
-先用下面的场景层选择行为，再选视觉体系。用户不需要知道组件名。新增场景层仅用于 Web；原生客户端映射与跨平台桌面扩展暂缓，未经用户明确授权不推进。
+以下资料按当前问题调用：简单调整直接实现，已有合理组件直接沿用，组件选择或风险需要澄清时查场景指导。用户可以直接描述目标。原生客户端映射与跨平台桌面扩展需另行授权。
 
 | 场景层 | 读取 | 何时使用 |
 |---|---|---|
-| 从自然语言决定交互 | [场景决策](scenario-routing.md) | 默认入口；先目标与风险，再组件 |
+| 从自然语言决定交互 | [场景决策](scenario-routing.md) | 组件或交互需要澄清时使用 |
 | 找组件及容易混淆的形态 | [组件地图](component-atlas.md) | 按任务检索中文、英文和口语别名 |
 | 浮层、反馈、表单、检索和列表详情 | [重点交互模式](interaction-patterns.md) | 确定状态、焦点、退出、恢复和响应式行为 |
 | 框架、组件库及专业能力 | [技术选型](stack-selection.md) | 新项目或确有选型需求，不默认重写已有项目 |
 | 检查决策是否适应情境 | [场景验收](scenario-evaluation.md) | 用对照场景检验，不只检查关键词 |
 
-以下 `apple-style-*` 文档是 **Apple 风格 Web 参考**，不是 Apple 原生 HIG 实现，也不是跨平台通用数值标准。若与场景行为约束冲突，先满足任务、Web 语义和无障碍要求，再调整视觉实现。
+产品界面的 HIG 原则可按需查[已有 Foundations 整理](../apple/hig-foundations-patterns.md)和[信息层级](../cross-platform/information-hierarchy.md)，实现采用 Web API。以下 `apple-style-*` 提供可选 Web 实现参考；其中 Apple.com 数值与构图适用于相应展示任务。样式与动效分别处理，共同满足任务、Web 语义和无障碍要求。
 
 | 任务 | 读取 | 范围 |
 |---|---|---|

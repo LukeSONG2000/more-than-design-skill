@@ -2,7 +2,7 @@
 name: more-than-design-skill
 description: Use with frontend-design for platform-aware UI across Android/Material, Windows/Fluent, Apple/HIG, and context-sensitive web; keep native behavior, visual style, and motion distinct.
 license: MIT
-version: 1.6.0
+version: 1.6.1
 author: LukeSONG2000
 category: productivity
 tags:
@@ -11,7 +11,7 @@ tags:
   - planning
   - analysis
 metadata:
-  version: 1.6.0
+  version: 1.6.1
   category: productivity
   tags:
     - frontend
@@ -38,7 +38,7 @@ metadata:
 
 每次首次加载本 skill 时，使用可用的 Python 3 运行本安装目录下的 `scripts/check_updates.py`。它在用户级持久状态中按本地自然日、来源去重；缓存命中不联网，不因新对话而重查。仅当输出 `notify=true` 时简短提示，不阻断当前任务；`remote_differs` 只表示提交不同，不代表远端一定领先。不要自动安装、拉取、覆盖或改配置。失败或无法执行时继续任务，不在同日自行重试网络检查。详细边界见[更新检查](references/update-checks.md)。
 
-先确认目标平台、输入方式、窗口形态、技术栈及已有设计体系。只打开目标平台索引，再从索引选择当前任务需要的样式、组件、行为或动效文档。
+利用已有上下文判断目标平台与当前任务，按需读取参考。局部样式调整直接在现有实现上完成；组件选择有疑问时查组件资料；技术选型时查框架指导。
 
 | 目标 | 入口 | 范围 |
 |---|---|---|
@@ -48,11 +48,12 @@ metadata:
 | Web | [Web](references/web/index.md) | 先服从项目语境；Apple 风格 Web 参考不等于 Apple 原生或通用标准 |
 | 选择平台、共享语义或图标映射 | [跨平台](references/cross-platform/index.md) | 只加载任务相关映射；移动端基线主要覆盖 iOS 与 Android |
 
-Web 不固定套用一个体系。现有品牌、组件库和工作流优先；语境相同且无其他约束时，消费内容与创意产品偏向 Apple，企业生产力与桌面密集工作流偏向 Fluent，移动优先与动态主题偏向 Material。完整冲突处理仅在需要时读跨平台索引中的平台路由。
+Web 以 HIG 作为通用审美准则，在实现中指导层级、排版、对齐、重点色和视觉反馈。根据内容与操作需求确定留白、字号、密度和材质：工作台支持紧凑扫描与比较，展示页面支持视觉叙事。Material、Fluent 和组件库提供组件能力、交互与工程参考，视觉细节结合 HIG、用户要求和已有品牌落实。HIG 用于产品界面的通用原则，Apple.com 构图用于适合的展示任务；这属于本 skill 的参考分工。
 
-## 实施约束
+## 实施指导
 
-- Web 任务先读[场景决策](references/web/scenario-routing.md)：从用户目标、风险、上下文和输入方式主动选组件，不要求用户先说术语；新建项目或明确要求选型时再读 Web 技术选型。不要因 Web 扩展顺带改造原生客户端，迁移和跨平台对齐需用户单独授权。
+- Web 的组件选择、交互或业务风险需要澄清时，读取[场景决策](references/web/scenario-routing.md)；技术选型时读取对应资料。合理的既有方案直接沿用。原生迁移和跨平台对齐需用户单独授权。
+- 指导优先描述适用条件、推荐做法和预期效果。反例用于说明有来源的 HIG 边界或用户明确提出的问题，例如避免重复副标题；来源与用户偏好分别标明。权限和数据安全边界保持明确。
 - 按[信息层级与直观交互](references/cross-platform/information-hierarchy.md)消除复述性说明、统一语义重点色，以布局和熟悉组件表达层级；保留必要标签、风险、数据摘要与无障碍信息，管理系统保留有效密度。
 - 将需求分为样式、组件、行为、动效、无障碍。样式数值不能代替交互行为；动效参数不能掩盖错误组件。分别查阅目标平台的样式与动效入口。
 - 原生优先标准组件与系统行为。Android 不复刻 iOS 控件，Windows 不套移动导航，Apple 不以 Web 毛玻璃模拟系统材质。

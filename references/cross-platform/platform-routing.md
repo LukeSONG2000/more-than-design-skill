@@ -30,26 +30,24 @@
 | iPhone/iPad | [HIG](https://developer.apple.com/design/human-interface-guidelines/) + [UIKit/SwiftUI](https://developer.apple.com/documentation/) | 系统导航、标准控件、Dynamic Type、系统材料 | Android predictive back、Windows command bar |
 | macOS | [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos) + [AppKit](https://developer.apple.com/documentation/appkit) | 菜单栏、窗口、工具栏、键鼠、快捷键 | 把 iPhone 页面直接放大 |
 | watchOS、visionOS、CarPlay 等 | [HIG Platforms](https://developer.apple.com/design/human-interface-guidelines/platforms) | 对应硬件、输入方式与安全约束 | 作为普通 Web/移动端装饰模板 |
-| Web | 先服从产品与现有系统，再选 [Apple](https://developer.apple.com/cn/design/)、[Fluent](https://fluent2.microsoft.design/) 或 [Material](https://m3.material.io/) | 浏览器语义、响应式、键盘、指针、触控、可访问性 | 冒充操作系统原生能力或混搭控件结构 |
+| Web | [HIG](https://developer.apple.com/design/human-interface-guidelines/) 为本 skill 的通用审美参考；框架、Fluent、Material 按需提供工程参考 | 尊重现有品牌；浏览器语义、响应式、输入与可访问性 | 把审美等同大留白，或把选库等同选默认外观 |
 
 ## Web 语境决策
 
-Web 不是“无平台”，而是同时面对浏览器、输入方式、屏幕尺寸、品牌和既有组件库。按以下顺序判断：
+Web 采用 HIG 作为通用审美准则，这是本 skill 的设计偏好。它在实现中指导层级、排版、对齐、重点色和视觉反馈。信息密度、留白、标题尺寸与材质服务于内容和操作：紧凑后台强调扫描与比较，内容页面强调阅读和表达。
 
-1. **已有产品系统优先。** 已有 Fluent、Material 或自有 Design System 时，延续其组件结构和 Token 命名；不要为了视觉偏好整体换皮。
-2. **工作流类型。** 密集生产力、多窗格、命令和键盘优先参考 [Fluent layout](https://fluent2.microsoft.design/layout/) 与 [Windows commanding](https://learn.microsoft.com/en-us/windows/apps/design/basics/commanding-basics)。
-3. **内容与品牌。** 消费、编辑、创意和硬件叙事优先参考 [Apple HIG foundations](https://developer.apple.com/design/human-interface-guidelines/foundations) 与 Apple.com 层级，但不能把系统专属材质当普通 CSS 承诺。
-4. **移动和自适应。** 移动优先、跨窗口类别、动态主题和明确组件覆盖优先参考 [Material adaptive design](https://m3.material.io/foundations/layout/layout-overview/adaptive-design)。
-5. **无明显差异时。** 本 skill 的偏好顺序为 Apple > Microsoft > Google；这只是 Web 视觉参考的平局规则，不覆盖目标平台原生规范。
+组件库、Material 和 Fluent 按需补充组件能力、交互行为、自适应和工程约束。选型遵循实际框架指导，视觉细节结合 HIG、已有品牌和用户要求实现。成熟的交互、Web 语义和无障碍能力随实现一同保留。
+
+简单修改直接完成，组件、交互或技术问题按需查阅资料。产品界面参考 HIG 通用原则，宣传展示任务可进一步借鉴 Apple.com 构图。此调整适用于 Web；原生平台继续遵循各自规范与行为。
 
 ### 快速选择
 
-| 问题 | 是时优先 |
+| 当前需要 | 按需参考 |
 |---|---|
-| 是否是桌面生产力、企业后台、开发工具或多窗格工作台？ | [Microsoft Fluent](https://fluent2.microsoft.design/) |
-| 是否以内容、产品、媒体、创意或高级消费体验为中心？ | [Apple Design](https://developer.apple.com/cn/design/) |
-| 是否移动优先、跨尺寸、主题可配置或已有 Material 组件？ | [Material 3](https://m3.material.io/) |
-| 是否已经有成熟自有设计系统？ | 保留现有系统，仅从三套官方规范中补原则与验收标准 |
+| 局部视觉完善 | 在现有实现上应用 HIG 通用审美 |
+| 多窗格、命令、键盘行为存在疑问 | 查 Fluent 相关行为与工程指导 |
+| 自适应或组件能力存在疑问 | 查 Material 或所用框架的能力文档 |
+| 已有成熟设计系统 | 延续已有体系，在授权范围内改善视觉细节 |
 
 ## 冲突优先级
 
@@ -58,7 +56,7 @@ Web 不是“无平台”，而是同时面对浏览器、输入方式、屏幕�
 1. 目标操作系统的交互和无障碍要求。
 2. 项目已有组件、品牌与技术约束。
 3. 任务指定的设计体系。
-4. 本 skill 的 Web 偏好顺序。
+4. 本 skill 的 Web HIG 审美偏好；仅在相关问题上按需参考工程资料。
 
 不要平均混合。可组合的是原则，例如语义色、清晰层级和减少动态；不可直接混合的是控件解剖、导航语义、系统材料、返回行为和平台 API。
 
